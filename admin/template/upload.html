@@ -1,0 +1,15 @@
+<html>
+<head></head>
+<body style="display: block; width: 100px; height: 20px;z-index:999;">
+<form id="uploadslForm" method="post"  enctype="multipart/form-data" action="http://localhost/blog/admin/ueditor/php/controller.php?action=uploadimage">
+	<input type="file" id="slpicinput" name="slpic" onchange="uploadsl()">
+</form>
+<iframe id="uploadsl" style="display:none;position:absolute;"></iframe>
+
+<script>
+	function uploadsl(){
+		document.getElementById('uploadslForm').submit();
+	}
+</script>
+</body>
+</html>

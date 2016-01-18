@@ -16,6 +16,8 @@ if(isset($_POST['addpost'])){
 	$tags = addslashes($_POST['tags']);
 	$content = addslashes($_POST['content']);
 	$status = $_POST['status'];
+	$categoryid = $_POST['categoryid'];
+	$city = $_POST['city'];
 	if(empty($listimage)){
 		if(preg_match('/<img(.*?)src="(.*?)(?=")/',$_POST['content'],$temp)){
 			$listimage = $temp[2];
@@ -24,9 +26,9 @@ if(isset($_POST['addpost'])){
 
 	
 	if(!empty($listimage))
-		$sql = "insert into articles(`title`,`listimage`,`remark`,`tags`,`author`,`status`) values('".$title."','".$listimage."','".$remark."','".$tags."','".$author."',".$status.")";
+		$sql = "insert into articles(`title`,`listimage`,`remark`,`tags`,`author`,`status`,`categoryid`,`city`) values('".$title."','".$listimage."','".$remark."','".$tags."','".$author."',".$status.",'".$categoryid."','".$city."')";
 	else
-		$sql = "insert into articles(`title`,`remark`,`tags`,`author`,`status`) values('".$title."','".$remark."','".$tags."','".$author."',".$status.")";
+		$sql = "insert into articles(`title`,`remark`,`tags`,`author`,`status`,`categoryid`,`city`) values('".$title."','".$remark."','".$tags."','".$author."',".$status.",'".$categoryid."','".$city."')";
 	$db->query($sql);
 	$articleId = $db->insert_id();
 	if($articleId){
@@ -42,6 +44,7 @@ if(isset($_POST['addpost'])){
 		
 	}
 }else{
+	$allcategory = getCategory($db);
 	//template
 	include 'template/add.tpl.php';
 }
@@ -54,4 +57,11 @@ function prepareUrlText($str){
 	$str = preg_replace('#[-_ ]+#', '-', $str);
 	$str = trim($str,'-');
 	return strtolower($str);
+}
+
+//所有分类
+function getCategory(&$db){
+	$sql = "select * from category";
+	$result = $db->fetch_all($sql);
+	return $result;
 }

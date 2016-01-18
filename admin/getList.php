@@ -17,7 +17,7 @@ if(isset($_GET['pagesize'])){
 	$pagesize = 10;
 }
 
-$aColumns = array('id','status','title','urlalias','listimage','remark', 'addtime','visitcount');
+$aColumns = array('id','status','title','urlalias','listimage','remark', 'addtime','visitcount','categoryid','city');
 
 
 /** 
@@ -134,6 +134,9 @@ foreach($datalist as $datatemp){
 	$item = array();
 	$item[] = $datatemp['id'];
 	$item[] = $datatemp['title'];
+	$tempcategory = getCategoryName($db,$datatemp['categoryid']);
+	$item[] = $tempcategory['name'];
+	$item[] = $datatemp['city'];
 	$item[] = ($datatemp['status']==0)?'<span class="label-default label label-danger">Banned</span>':'<span class="label-success label label-default">Active</span>';
 	$item[] = $datatemp['addtime'];
 	$item[] = $datatemp['visitcount'];
@@ -154,3 +157,11 @@ foreach($datalist as $datatemp){
 #var_dump($outputdata['aaData']);die();
 
 echo json_encode($outputdata);
+
+
+//取分类名
+function getCategoryName(&$db,$id){
+	$sql = "select * from category where id=".$id;
+	$result = $db->fetch_first($sql);
+	return $result;
+}

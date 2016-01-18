@@ -20,12 +20,14 @@
                 <table id="articlelist" class="table table-striped table-bordered bootstrap-datatable  responsive order-column">
 				    <thead>
 				    <tr>
-				        <th width="80">id</th>
-				        <th>title</th>
-				        <th width="80">status</th>
-				        <th width="180">addtime</th>
-                        <th width="180">visitcount</th>
-				        <th width="300">operations</th>
+				        <th width="80">编号</th>
+				        <th>标题</th>
+                        <th width="120">分类</th>
+                        <th width="120">区域(城市)</th>
+				        <th width="80">状态</th>
+				        <th width="180">发布时间</th>
+                        <th width="100">点击量</th>
+				        <th width="250">操作</th>
 				    </tr>
 				    </thead>
 				</table>

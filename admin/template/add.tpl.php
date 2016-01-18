@@ -34,6 +34,18 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="categoryid">分类</label>
+                        <select name="categoryid">
+                            <?php foreach($allcategory as $cat):?>
+                            <option value="<?php echo $cat['id'];?>"><?php echo $cat['name'];?></option>
+                            <?php endforeach;?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="remark">有效区域(城市)</label>
+                        <input type="text" class="form-control" id="city" name="city">
+                    </div>
+                    <div class="form-group">
                         <label for="tags">TAG(逗号分隔)</label>
                         <input type="text" class="form-control" id="tags" name="tags">
                     </div>

@@ -17,6 +17,8 @@ if(isset($_POST['savepost'])){
 	$remark = addslashes(trim($_POST['remark']));
 	$tags = addslashes($_POST['tags']);
 	$status = $_POST['status'];
+	$categoryid = $_POST['categoryid'];
+	$city = $_POST['city'];
 	// if(!$_FILES['slpic']['error']){
 		// #/upload/blog/image/{yyyy}{mm}{dd}/{time}{rand:6}
 		// $daydir = date('Ymd',time());
@@ -43,7 +45,7 @@ if(isset($_POST['savepost'])){
 	
 
 	//update 主表
-	$sql = "update articles set title='".$title."',remark='".$remark."',tags='".$tags."',status=".$status." where id=".$id;
+	$sql = "update articles set title='".$title."',remark='".$remark."',tags='".$tags."',status=".$status." ,categoryid='".$categoryid."',city='".$city."' where id=".$id;
 	$db->query($sql);
 	if(!empty($listimage)){
 		$sql = "update articles set listimage='".$listimage."' where id=".$id;
@@ -70,5 +72,15 @@ if(empty($id)){
 	}
 }
 
+$allcategory = getCategory($db);
+
 //template
 include 'template/edit.tpl.php';
+
+
+//所有分类
+function getCategory(&$db){
+	$sql = "select * from category";
+	$result = $db->fetch_all($sql);
+	return $result;
+}

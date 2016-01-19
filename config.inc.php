@@ -2,7 +2,7 @@
 date_default_timezone_set('America/Chicago');
 session_start();
 
-define('SITE_DOMAIN','http://www.zhuangxiuji.com.cn');
+define('SITE_DOMAIN','http://www.zhuangxiuji.com.cn/cms/');
 //数据库
 $DB['config']['dbhost'] = 'localhost';
 $DB['config']['dbname'] = 'cms';

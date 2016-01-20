@@ -57,7 +57,7 @@ if(isset($_POST['savepost'])){
 	$db->query($sql);
 
 	$msg = "Saved Successfully";
-
+	echo '修改保存成功<script>setTimeout(function(){window.location.href=\'index.php\';},1000)</script>';
 }else{
 	$id = intval($_GET['id']);	
 }

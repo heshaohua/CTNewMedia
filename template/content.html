@@ -1,0 +1,149 @@
+<?php include 'template/header.html';?>
+
+<body>
+
+<div id="frame" style="margin-bottom:50px;">
+
+	<div id="top">
+
+		<a id="logo" href="index.html"><img src="source/images/home.png" align="top"></a>
+
+		<a id="title">文章详细 --同城新媒</a>
+
+		<!--a id="search" href="search.jsp"><img src="source/images/search.png" align="top"></a-->
+
+		<span id="list"><a href="javascript:window.history.back();"><img src="source/images/goback.png" align="top"></a>
+
+		
+
+		   <a href="login.html"><img src="source/images/userlogin.png" align="top"></a>
+
+		
+
+		</span>
+
+	</div>
+
+	<div id="con">
+		<div class="tour_div">
+
+			<div class="tour_title tc0" style="font-size:20px;"><?php echo $content['title'];?></div>
+			<div style="border: 1px #ECECEC dashed;background-color: #fff;padding: 5px;font-size: 12px;color: #FF5705;margin-top: 5px;margin-bottom: 10px;line-height:20px;height:40px;">
+				     
+				<div style="width:35%;float:left;height:20px;">阅读： 30002</div>
+				<div style="width:45%;float:left;height:20px;">发布：2016-01-25</div>
+				<div style="width:35%;float:left;height:20px;">全部：￥300.00</div>
+				<div style="width:30%;float:left;height:20px;">剩余：￥20.00</div> 
+				<div style="width:30%;float:left;height:20px;">人均：0.35-1.2</div>           
+			</div>
+			<div style="width:100%;font-size:12px;">
+				分钱区域：成都市(武侯区，青羊区，双流县，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区)
+			</div>
+			<div class="proinfo_1">
+				<?php echo $content['content'];?>
+			</div>	
+		</div>	
+
+	</div>
+
+<script>
+
+$(function () {
+
+	$('#list img').click(function (e) {
+
+		if(parseInt($('#info').css('right'))==0){
+
+			$('#info').animate({right:-200},200).css('display','none');
+
+			$('#frame').animate({left:0},200);
+
+		}else{
+
+			$('#info').animate({right:0},200).css({'display':'block','height':$('#frame').height()});
+
+			$('#frame').animate({left:-200},200);
+
+		}
+
+	});
+
+	$(window).manhuatoTop({
+
+		showHeight : 500,//设置滚动高度时显示
+
+		speed : 500 //返回顶部的速度以毫秒为单位
+
+	});
+
+})
+
+function show(i){
+
+	var now = new Date();
+
+	var utime = $('input').eq(i).attr("value");
+
+	if (utime == "")
+
+		return "无";
+
+	var urodz = new Date(utime);
+
+	var daysRound = Math.floor((urodz - now) / 1000 / 60 / 60 / 24);
+
+	var hoursRound = Math.floor((urodz - now) / 1000 / 60 / 60 - (24 * daysRound));
+
+	var minutesRound = Math.floor((urodz - now) / 1000 / 60 - (24 * 60 * daysRound) - (60 * hoursRound));
+
+	var secondsRound = Math.floor((urodz - now) / 1000 - (24 * 60 * 60 * daysRound) - (60 * 60 * hoursRound) - (60 * minutesRound));
+
+	var time = daysRound + "天" + hoursRound + "时" + minutesRound + "分" + secondsRound + "秒";
+
+	if (daysRound < 0 || hoursRound < 0 || minutesRound < 0 || secondsRound < 0)
+
+		time = "特卖已经结束！";
+
+	if (daysRound >= 3)
+
+		time = "3天以上";
+
+	$('.servertime').eq(i).html(time);
+
+	setTimeout("show(\"" + i + "\")",1000);
+
+}
+
+
+
+h=1;
+
+$("#more").click(function(){
+
+	var scrolltop=$("#con").height();
+
+	$("#more").html("<img src=\"source/images/loading.gif\">");
+
+	htmlobj=$.ajax({url:"more.jsp@type=0&page="+h,async:false});
+
+	$("#con").append(htmlobj.responseText);
+
+	h=h+1;
+
+	
+
+	$("#more").html("点击查看更多");
+
+	$("html,body").animate({scrollTop:scrolltop+60},500);	
+
+	if($("#nomore").attr("value")==1){
+
+		$("#more").html("请关注后续更新");
+
+	}
+
+});
+
+</script>
+
+<?php include 'template/footer.html';?>

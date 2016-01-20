@@ -20,7 +20,7 @@
 
 <link href="source/css/m.css" rel="stylesheet" type="text/css" />
 
-<title>HOME</title>
+<title><?php echo $title;?></title>
 
 <meta name="keywords" content="" />
 
@@ -32,6 +32,8 @@
 
 <script src="source/js/common.js" type="text/javascript"></script>
 
+<?php if($pageidx =='index'):?>
+
 <link rel="stylesheet" href="source/css/idangerous.swiper.css">
 
 <link rel="stylesheet" href="source/css/style.css">
@@ -42,4 +44,5 @@
 
 <script src="source/js/swiper.js"></script>
 
+<?php endif;?>
 </head>

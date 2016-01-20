@@ -26,7 +26,5 @@ $(function(){
     	swiper.swipeTo($(this).index())
     })
 	setInterval(swiper.swipeNext,4000);
-
-	
 })
 

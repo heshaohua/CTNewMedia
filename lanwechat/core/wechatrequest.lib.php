@@ -207,7 +207,13 @@ class WechatRequest{
      * @return array
      */
     public static function eventSubscribe(&$request){
-        $content = '欢迎您关注我们的微信，将为您竭诚服务';
+        $content = '欢迎您关注我们的微信，将为您竭诚服务,<a href="http://www.zhuangxiuji.com.cn/cms/">微官网</a>,功能开发测试中';
+
+        //关注的时候用户信息存入数据库
+        if(!UserManage::isUserExists($request['fromusername'])){
+            UserManage::addUser($request['fromusername']);
+        }
+        
         return ResponsePassive::text($request['fromusername'], $request['tousername'], $content);
     }
 

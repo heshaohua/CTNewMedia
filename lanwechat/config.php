@@ -27,6 +27,16 @@ define("WECHAT_APPID", 'wxd650493c8bace706');
 define("WECHAT_APPSECRET", '35c418ebce1938381799cf685473a67c');
 
 
+/*
+ * 数据库配置
+ */
+define("DBHOST", 'localhost');
+define("DBNAME", 'cms');
+define("DBUSER", 'root');
+define("DBPASSWORD", 'newnonesearch');
+require_once '../include/mysql.class.php';
+
+
 ////-----引入系统所需类库-------------------
 ////引入错误消息类
 //include_once 'core/msg.lib.php';

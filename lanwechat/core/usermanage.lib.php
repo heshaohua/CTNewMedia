@@ -153,4 +153,62 @@ class UserManage{
     }
 
 
+    //-----------------------------用户管理数据库操作----------------------
+
+    /**
+    * 检查用户是否已经在数据库存在
+    * @param $openid 用户openid
+    * @return id:已存在， false，不存在
+    */
+    public static function isUserExists($openid){
+        $db = new mysql;
+        $db->connect(DBHOST, DBUSER, DBPASSWORD, DBNAME);
+        $sql = "select id from users where openid='".$openid."'";
+        $result = $db->fetch_first($sql);
+        if(!empty($result)&&$result!=false){
+            return $result['id'];
+        }
+        return false;
+    }
+
+
+    /**
+    * 插入数据库
+    * @param $userinfo 用户信息
+    * @return id 用户id
+    */
+    public static function addUser($openid){
+        $userinfostr = self::getUserInfo($openid);
+        $userinfo = json_decode($userinfostr,true);
+        if(!isset($userinfo['openid'])) 
+            return false;
+
+        $db = new mysql;
+        $db->connect(DBHOST, DBUSER, DBPASSWORD, DBNAME);
+        $sql = "insert into users
+                    (`subscribe`,`openid`,`nickname`,`sex`,`language`,`city`,`province`,`country`,`headimgurl`,`subscribe_time`) 
+                values(
+                    '".$userinfo['subscribe']."',
+                    '".$userinfo['openid']."',
+                    '".$userinfo['nickname']."',
+                    '".$userinfo['sex']."',
+                    '".$userinfo['language']."',
+                    '".$userinfo['city']."',
+                    '".$userinfo['province']."',
+                    '".$userinfo['country']."',
+                    '".$userinfo['headimgurl']."',
+                    '".$userinfo['subscribe_time']."'
+                )";
+        $db->query($sql);
+        $userid = $db->insert_id();
+        if($userid)
+            return $userid;
+        else
+            return false;
+    }
+
+    /**
+    * 更新用户信息
+    * 
+    */
 }

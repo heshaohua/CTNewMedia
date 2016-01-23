@@ -36,14 +36,10 @@ class AccessToken{
         $accessToken['time'] = time();
         $accessTokenJson = json_encode($accessToken);
         //存入数据库
-        /**
-         * 这里通常我会把access_token存起来，然后用的时候读取，判断是否过期，如果过期就重新调用此方法获取，存取操作请自行完成
-         *
-         * 请将变量$accessTokenJson给存起来，这个变量是一个字符串
-         */
-        $f = fopen('access_token', 'w+');
-        fwrite($f, $accessTokenJson);
-        fclose($f);
+        $db = new mysql;
+        $db->connect(DBHOST, DBUSER, DBPASSWORD, DBNAME);
+        $sql = "update accesstoken set access_token='".$accessTokenJson."' where id=1";
+        $db->query($sql);
         return $accessToken;
     }
 
@@ -54,9 +50,10 @@ class AccessToken{
      */
     private static function _checkAccessToken(){
         //获取access_token。是上面的获取方法获取到后存起来的。
-//        $accessToken = YourDatabase::get('access_token');
-        $data = file_get_contents('access_token');
-        $accessToken['value'] = $data;
+        $db = new mysql;
+        $db->connect(DBHOST, DBUSER, DBPASSWORD, DBNAME);
+        $tempaccessToken = $db->fetch_first("select * from accesstoken");
+        $accessToken['value'] = $tempaccessToken['access_token'];
         if(!empty($accessToken['value'])){
             $accessToken = json_decode($accessToken['value'], true);
             if(time() - $accessToken['time'] < $accessToken['expires_in']-10){

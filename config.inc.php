@@ -9,6 +9,8 @@ $DB['config']['dbname'] = 'cms';
 $DB['config']['dbuser'] = 'root';
 $DB['config']['dbpassword'] = 'newnonesearch';
 
+//引入微信框架
+include_once 'lanwechat/lanewechat.php';
 
 require_once 'include/mysql.class.php';
 $db = new mysql;

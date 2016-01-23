@@ -178,8 +178,7 @@ class UserManage{
     * @return id 用户id
     */
     public static function addUser($openid){
-        $userinfostr = self::getUserInfo($openid);
-        $userinfo = json_decode($userinfostr,true);
+        $userinfo = self::getUserInfo($openid);
         if(!isset($userinfo['openid'])) 
             return false;
 

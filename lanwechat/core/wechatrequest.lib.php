@@ -18,6 +18,8 @@ class WechatRequest{
      */
     public static function switchType(&$request){
         $data = array();
+        self::logRequest($request);
+        
         switch ($request['msgtype']) {
             //事件
             case 'event':
@@ -457,4 +459,19 @@ class WechatRequest{
         }
     }
 
+
+    /**
+    * 记录微信发送的请求
+    * @param $request 微信发送的请求数组
+    * @return 返回刚刚插入的id， 失败返回false
+    */
+    public static function logRequest($request){
+        $db = new mysql;
+        $db->connect(DBHOST, DBUSER, DBPASSWORD, DBNAME);
+        $message = json_encode($request);
+        $sql = "insert into messages(`message`) values('".$message."')";
+        $db->query($sql);
+        $messageid = $db->insert_id();
+        return $messageid?$messageid:false;
+    }
 }

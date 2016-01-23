@@ -34,7 +34,6 @@ define("DBHOST", 'localhost');
 define("DBNAME", 'cms');
 define("DBUSER", 'root');
 define("DBPASSWORD", 'newnonesearch');
-require_once '../include/mysql.class.php';
 
 
 ////-----引入系统所需类库-------------------

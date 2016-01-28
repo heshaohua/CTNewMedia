@@ -56,9 +56,23 @@
                         <input type="text" class="form-control" id="city" name="city" value="<?php echo $data['city'];?>">
                     </div>
                     <div class="form-group">
-                        <label for="tags">TAG(逗号分隔)</label>
-                        <input type="text" class="form-control" id="tags" name="tags" value="<?php echo $data['tags'];?>">
+                        <label for="money">总金额</label>
+                        <input type="text" class="form-control" id="money" name="money" value="<?php echo $data['money'];?>">
                     </div>
+                    <div class="form-group">
+                        <label for="leftmoney">剩余金额</label>
+                        <input type="text" class="form-control" id="leftmoney" name="leftmoney" value="<?php echo $data['leftmoney'];?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="priceperclick">人均</label>
+                        <input type="text" class="form-control" id="priceperclick" name="priceperclick" value="<?php echo $data['priceperclick'];?>">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clicknum">点击数</label>
+                        <input type="text" class="form-control" id="clicknum" name="clicknum" value="<?php echo $data['clicknum'];?>">
+                    </div>
+                    
                     <div class="form-group">
                         <label for="remark">内容</label>
                         <script id="container" name="content" type="text/plain">

@@ -2,7 +2,7 @@
 /**
  * 处理datatable ajax请求
  */
-require_once '../config.inc.php';
+require_once 'config.inc.php';
 
 if(isset($_GET['page'])){
 	$page = intval($_GET['page']);
@@ -17,7 +17,7 @@ if(isset($_GET['pagesize'])){
 	$pagesize = 10;
 }
 
-$aColumns = array('id','status','title','urlalias','listimage','remark', 'addtime','visitcount','categoryid','city');
+$aColumns = array('id','status','title','urlalias','listimage','remark', 'addtime','visitcount','categoryid','city','money','leftmoney','clicknum','priceperclick');
 
 
 /** 
@@ -138,8 +138,12 @@ foreach($datalist as $datatemp){
 	$item[] = $tempcategory['name'];
 	$item[] = $datatemp['city'];
 	$item[] = ($datatemp['status']==0)?'<span class="label-default label label-danger">Banned</span>':'<span class="label-success label label-default">Active</span>';
+	
+	$item[] = $datatemp['money'];
+	$item[] = $datatemp['leftmoney'];
+	$item[] = $datatemp['priceperclick'];
+	$item[] = $datatemp['clicknum'];
 	$item[] = $datatemp['addtime'];
-	$item[] = $datatemp['visitcount'];
 	$item[] = '<a class="btn btn-success" target="_blank" href="http://www.zhuangxiuji.com.cn/cms/'.$datatemp['urlalias'].'.html">
                 <i class="glyphicon glyphicon-zoom-in icon-white"></i>
                 View

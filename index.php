@@ -8,14 +8,12 @@ ini_set('display_errors', 1);
 require_once './config.inc.php';
 require_once './include/functions.php';
 
+//用户openid
+if(empty($_SESSION['openid'])){
+	checkOpenid();
+}
 
-/**
-* 用户信息跟着走 1.检查session(openid); 2.没有的话，获取openid，并保存在session
-*/
 
-//授权请求
-$redirect_uri = 'http://www.zhuangxiuji.com.cn/cms/index.php';
-\LaneWeChat\Core\WeChatOAuth::getCode($redirect_uri, $state=1, $scope='snsapi_userinfo');
 
 $pageidx = 'index';
 

@@ -1,6 +1,92 @@
 <?php include 'template/header.html';?>
 
 <body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+wx.config({
+	appId: '<?php echo $signPackage["appId"];?>',
+    timestamp: <?php echo $signPackage["timestamp"];?>,
+    nonceStr: '<?php echo $signPackage["nonceStr"];?>',
+    signature: '<?php echo $signPackage["signature"];?>',
+    jsApiList: [
+        'checkJsApi',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'onMenuShareQQ',
+        'onMenuShareWeibo',
+        'hideMenuItems',
+        'showMenuItems',
+        'hideAllNonBaseMenuItem',
+        'showAllNonBaseMenuItem',
+        'translateVoice',
+        'startRecord',
+        'stopRecord',
+        'onRecordEnd',
+        'playVoice',
+        'pauseVoice',
+        'stopVoice',
+        'uploadVoice',
+        'downloadVoice',
+        'chooseImage',
+        'previewImage',
+        'uploadImage',
+        'downloadImage',
+        'getNetworkType',
+        'openLocation',
+        'getLocation',
+        'hideOptionMenu',
+        'showOptionMenu',
+        'closeWindow',
+        'scanQRCode',
+        'chooseWXPay',
+        'openProductSpecificView',
+        'addCard',
+        'chooseCard',
+        'openCard'
+    ]
+});
+
+wx.ready(function(){
+	wx.onMenuShareTimeline({
+	    title: '<?php echo $shareinfo["title"];?>',
+	    link: '<?php echo $shareinfo["link"];?>',
+	    imgUrl: '<?php echo $shareinfo["imgUrl"];?>',
+	    trigger: function (res) {
+	        //alert('用户点击分享到朋友圈');
+	    },
+	    success: function (res) {
+	        //请求统计接口
+	        $.ajax({
+	        	type:"POST",
+	        	url:'http://www.zhuangxiuji.com.cn/cms/content.php',
+	        	data:"action=share&id=<?php echo $content['id'];?>&openid=<?php echo $_SESSION['openid'];?>",
+	        	success:function(msg){alert('分享成功');}
+	        });
+	    },
+	    cancel: function (res) {
+	        //alert('已取消');
+	    },
+	    fail: function (res) {
+	        //alert(JSON.stringify(res));
+	    }
+	});
+});
+
+<?php if(!empty($shareopenid)):?>
+$(function(){
+	$.ajax({
+		type:"POST",
+	    url:'http://www.zhuangxiuji.com.cn/cms/content.php',
+	    data:"action=clickshare&id=<?php echo $content['id'];?>&openid=<?php echo $_SESSION['openid'];?>&shareopenid=<?php echo $shareopenid;?>",
+	    success:function(msg){
+	    	setTimeout(function(){alert('本次阅读为你的好友增加￥0.5');},3000);
+	    	//to do 引入artDialog，丰富交互
+	    	
+	    }
+	});
+});
+<?php endif;?>
+</script>
 
 <div id="frame" style="margin-bottom:50px;">
 

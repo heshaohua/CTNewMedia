@@ -3,7 +3,7 @@
  * logout page
  */
 
-require_once '../config.inc.php';
+require_once 'config.inc.php';
 
 //log out
 $_SESSION['admin'] = '';

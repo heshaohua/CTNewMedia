@@ -1,6 +1,7 @@
 <?php
 date_default_timezone_set('America/Chicago');
-session_start();
+//引入微信框架
+require_once 'lanwechat/lanewechat.php';
 
 define('SITE_DOMAIN','http://www.zhuangxiuji.com.cn/cms/');
 //数据库
@@ -9,8 +10,7 @@ $DB['config']['dbname'] = 'cms';
 $DB['config']['dbuser'] = 'root';
 $DB['config']['dbpassword'] = 'newnonesearch';
 
-//引入微信框架
-include_once 'lanwechat/lanewechat.php';
+
 
 require_once 'include/mysql.class.php';
 $db = new mysql;

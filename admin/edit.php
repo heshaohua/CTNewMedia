@@ -3,7 +3,7 @@
  * 编辑文章内容
  */
 ini_set('display_errors', 1);
-require_once '../config.inc.php';
+require_once 'config.inc.php';
 
 //check isAmdin
 isAdmin();
@@ -15,10 +15,14 @@ if(isset($_POST['savepost'])){
 	$content = addslashes($_POST['content']);
 	$title = addslashes($_POST['title']);
 	$remark = addslashes(trim($_POST['remark']));
-	$tags = addslashes($_POST['tags']);
+	//$tags = addslashes($_POST['tags']);
 	$status = $_POST['status'];
 	$categoryid = $_POST['categoryid'];
 	$city = $_POST['city'];
+	$money = floatval($_POST['money']);
+	$leftmoney = floatval($_POST['leftmoney']);
+	$priceperclick = floatval($_POST['priceperclick']);
+	$clicknum = intval($_POST['clicknum']);
 	// if(!$_FILES['slpic']['error']){
 		// #/upload/blog/image/{yyyy}{mm}{dd}/{time}{rand:6}
 		// $daydir = date('Ymd',time());
@@ -45,7 +49,7 @@ if(isset($_POST['savepost'])){
 	
 
 	//update 主表
-	$sql = "update articles set title='".$title."',remark='".$remark."',tags='".$tags."',status=".$status." ,categoryid='".$categoryid."',city='".$city."' where id=".$id;
+	$sql = "update articles set title='".$title."',remark='".$remark."',status=".$status." ,categoryid='".$categoryid."',city='".$city."',money=".$money.",leftmoney=".$leftmoney.",priceperclick=".$priceperclick.",clicknum=".$clicknum." where id=".$id;
 	$db->query($sql);
 	if(!empty($listimage)){
 		$sql = "update articles set listimage='".$listimage."' where id=".$id;

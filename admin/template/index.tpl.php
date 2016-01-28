@@ -22,11 +22,14 @@
 				    <tr>
 				        <th width="80">编号</th>
 				        <th>标题</th>
-                        <th width="120">分类</th>
-                        <th width="120">区域(城市)</th>
-				        <th width="80">状态</th>
-				        <th width="180">发布时间</th>
-                        <th width="100">点击量</th>
+                        <th width="80">分类</th>
+                        <th width="80">城市</th>
+                        <th width="80">状态</th>
+                        <th width="50">总金额</th>
+                        <th width="50">剩余</th>
+                        <th width="50">人均</th>
+                        <th width="80">点击</th>
+                        <th width="80">发布时间</th>
 				        <th width="250">操作</th>
 				    </tr>
 				    </thead>

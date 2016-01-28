@@ -5,7 +5,7 @@
  * 提交处理结果（消息）
  */
 ini_set('display_errors', 1);
-require_once '../config.inc.php';
+require_once 'config.inc.php';
 if(!empty($_SESSION['admin'])){
 	header("location:index.php");
 }

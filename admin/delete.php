@@ -4,7 +4,7 @@
  */
 
 ini_set('display_errors', 1);
-require_once '../config.inc.php';
+require_once 'config.inc.php';
 
 //check isAmdin
 isAdmin();

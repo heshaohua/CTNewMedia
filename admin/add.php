@@ -3,7 +3,7 @@
  * 写新文章
  */
 ini_set('display_errors', 1);
-require_once '../config.inc.php';
+require_once 'config.inc.php';
 //check isAmdin
 isAdmin();
 
@@ -13,11 +13,13 @@ if(isset($_POST['addpost'])){
 	$title = addslashes($_POST['title']);
 	$remark = addslashes(trim($_POST['remark']));
 	$author = $_SESSION['admin'];
-	$tags = addslashes($_POST['tags']);
+	//$tags = addslashes($_POST['tags']);
 	$content = addslashes($_POST['content']);
 	$status = $_POST['status'];
 	$categoryid = $_POST['categoryid'];
 	$city = $_POST['city'];
+	$money = floatval($_POST['money']);
+	$priceperclick = floatval($_POST['priceperclick']);
 	if(empty($listimage)){
 		if(preg_match('/<img(.*?)src="(.*?)(?=")/',$_POST['content'],$temp)){
 			$listimage = $temp[2];
@@ -26,9 +28,9 @@ if(isset($_POST['addpost'])){
 
 	
 	if(!empty($listimage))
-		$sql = "insert into articles(`title`,`listimage`,`remark`,`tags`,`author`,`status`,`categoryid`,`city`) values('".$title."','".$listimage."','".$remark."','".$tags."','".$author."',".$status.",'".$categoryid."','".$city."')";
+		$sql = "insert into articles(`title`,`listimage`,`remark`,`author`,`status`,`categoryid`,`city`,`money`,`leftmoney`,`priceperclick`) values('".$title."','".$listimage."','".$remark."','".$author."',".$status.",'".$categoryid."','".$city."',".$money.",".$money.",".$priceperclick.")";
 	else
-		$sql = "insert into articles(`title`,`remark`,`tags`,`author`,`status`,`categoryid`,`city`) values('".$title."','".$remark."','".$tags."','".$author."',".$status.",'".$categoryid."','".$city."')";
+		$sql = "insert into articles(`title`,`remark`,`author`,`status`,`categoryid`,`city`,`money`,`leftmoney`,`priceperclick`) values('".$title."','".$remark."','".$author."',".$status.",'".$categoryid."','".$city."',".$money.",".$money.",".$priceperclick.")";
 	$db->query($sql);
 	$articleId = $db->insert_id();
 	if($articleId){

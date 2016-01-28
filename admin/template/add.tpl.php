@@ -46,8 +46,12 @@
                         <input type="text" class="form-control" id="city" name="city">
                     </div>
                     <div class="form-group">
-                        <label for="tags">TAG(逗号分隔)</label>
-                        <input type="text" class="form-control" id="tags" name="tags">
+                        <label for="money">总金额</label>
+                        <input type="text" class="form-control" id="money" name="money">
+                    </div>
+                     <div class="form-group">
+                        <label for="priceperclick">人均</label>
+                        <input type="text" class="form-control" id="priceperclick" name="priceperclick">
                     </div>
                     <div class="form-group">
                         <label for="remark">内容</label>

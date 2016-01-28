@@ -2,7 +2,7 @@
 /**
  * 处理datatable ajax请求
  */
-require_once '../config.inc.php';
+require_once 'config.inc.php';
 
 if(isset($_GET['page'])){
 	$page = intval($_GET['page']);

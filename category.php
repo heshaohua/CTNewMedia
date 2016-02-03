@@ -17,5 +17,8 @@ if(empty($categoryid)){
 	exit;
 }
 
+$contents = $db->fetch_all("select * from articles where categoryid=".$categoryid);
+
+
 //template
 include 'template/category.html';

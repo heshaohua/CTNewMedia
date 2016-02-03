@@ -10,27 +10,32 @@ isAdmin();
 
 
 if(isset($_POST['addpost'])){
-	$title = addslashes($_POST['title']);
-	$remark = addslashes(trim($_POST['remark']));
+	$title = addslashes(trim($_POST['title']));
+	//$remark = addslashes(trim($_POST['remark']));
 	$author = $_SESSION['admin'];
 	//$tags = addslashes($_POST['tags']);
 	$content = addslashes($_POST['content']);
 	$status = $_POST['status'];
 	$categoryid = $_POST['categoryid'];
-	$city = $_POST['city'];
+	$minprice = floatval($_POST['minprice']);
+	$maxprice = floatval($_POST['maxprice']);
+	$city = trim($_POST['city']);
 	$money = floatval($_POST['money']);
-	$priceperclick = floatval($_POST['priceperclick']);
 	if(empty($listimage)){
 		if(preg_match('/<img(.*?)src="(.*?)(?=")/',$_POST['content'],$temp)){
 			$listimage = $temp[2];
 		}
 	}
 
+	if(!empty($listimage)&&strpos($listimage,'//')===false){
+		$listimage = 'http://www.zhuangxiuji.com.cn'.$listimage;
+	}
+
 	
 	if(!empty($listimage))
-		$sql = "insert into articles(`title`,`listimage`,`remark`,`author`,`status`,`categoryid`,`city`,`money`,`leftmoney`,`priceperclick`) values('".$title."','".$listimage."','".$remark."','".$author."',".$status.",'".$categoryid."','".$city."',".$money.",".$money.",".$priceperclick.")";
+		$sql = "insert into articles(`title`,`listimage`,`remark`,`author`,`status`,`categoryid`,`city`,`money`,`leftmoney`,`minprice`,`maxprice`) values('".$title."','".$listimage."','".$remark."','".$author."',".$status.",'".$categoryid."','".$city."',".$money.",".$money.",".$minprice.",".$maxprice.")";
 	else
-		$sql = "insert into articles(`title`,`remark`,`author`,`status`,`categoryid`,`city`,`money`,`leftmoney`,`priceperclick`) values('".$title."','".$remark."','".$author."',".$status.",'".$categoryid."','".$city."',".$money.",".$money.",".$priceperclick.")";
+		$sql = "insert into articles(`title`,`remark`,`author`,`status`,`categoryid`,`city`,`money`,`leftmoney`,`minprice`,`maxprice`) values('".$title."','".$remark."','".$author."',".$status.",'".$categoryid."','".$city."',".$money.",".$money.",".$minprice.",".$maxprice.")";
 	$db->query($sql);
 	$articleId = $db->insert_id();
 	if($articleId){

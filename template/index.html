@@ -67,98 +67,23 @@
 
 		<div id="menudiv" style="margin:0 auto;position:relative;width:100%;max-width:500px;height:auto;margin-top:0px;">
 
-			
+			<?php 
+				foreach($allcategory as $key=>$cat){
+			?>
 
 				<div class="tm_div" style="float:left;width:30.67%;height:auto;margin-left:2%;overflow:hidden;margin-top:10px;">
 
-					<a href="onsale_2.html"><img src="upload/m_pic/1.jpg" style="position:relative;width:100%;top:0px;left:0px;"></a>
+					<a href="category.php?id=<?php echo $cat['id'];?>">
+						<img src="upload/m_pic/<?php echo $key+1;?>.jpg" style="position:relative;width:100%;top:0px;left:0px;">
+					</a>
 
-					<a href="onsale_2.html" style="position:absolute;width:100%;height:12px;line-height:12px;text-align:left;top:8px;left:8px;text-decoration:none;color:#ffffff;">清仓秒杀</a>
-
-				</div>
-
-			
-
-				<div class="tm_div" style="float:left;width:30.67%;height:auto;margin-left:2%;overflow:hidden;margin-top:10px;">
-
-					<a href="category.php"><img src="upload/m_pic/2.jpg" style="position:relative;width:100%;top:0px;left:0px;"></a>
-
-					<a href="category.php" style="position:absolute;width:100%;height:12px;line-height:12px;text-align:left;top:8px;left:8px;text-decoration:none;color:#ffffff;">每日推荐</a>
+					<a href="category.php?id=<?php echo $cat['id'];?>" style="position:absolute;width:100%;height:12px;line-height:12px;text-align:left;top:8px;left:8px;text-decoration:none;color:#ffffff;"><?php echo $cat['name'];?></a>
 
 				</div>
 
-			
-
-				<div class="tm_div" style="float:left;width:30.67%;height:auto;margin-left:2%;overflow:hidden;margin-top:10px;">
-
-					<a href="onsale.html"><img src="upload/m_pic/5.jpg" style="position:relative;width:100%;top:0px;left:0px;"></a>
-
-					<a href="onsale.html" style="position:absolute;width:100%;height:12px;line-height:12px;text-align:left;top:8px;left:8px;text-decoration:none;color:#ffffff;">限时特卖</a>
-
-				</div>
-
-			
-
-				<div class="tm_div" style="float:left;width:30.67%;height:auto;margin-left:2%;overflow:hidden;margin-top:10px;">
-
-					<a href="category.php"><img src="upload/m_pic/4.jpg" style="position:relative;width:100%;top:0px;left:0px;"></a>
-
-					<a href="category.php" style="position:absolute;width:100%;height:12px;line-height:12px;text-align:left;top:8px;left:8px;text-decoration:none;color:#ffffff;">旅游搜索</a>
-
-				</div>
-
-			
-
-				<div class="tm_div" style="float:left;width:30.67%;height:auto;margin-left:2%;overflow:hidden;margin-top:10px;">
-
-					<a href="hot.html"><img src="upload/m_pic/7.jpg" style="position:relative;width:100%;top:0px;left:0px;"></a>
-
-					<a href="hot.html" style="position:absolute;width:100%;height:12px;line-height:12px;text-align:left;top:8px;left:8px;text-decoration:none;color:#ffffff;">当季热点</a>
-
-				</div>
-
-			
-
-				<div class="tm_div" style="float:left;width:30.67%;height:auto;margin-left:2%;overflow:hidden;margin-top:10px;">
-
-					<a href="onsale_5.html"><img src="upload/m_pic/8.jpg" style="position:relative;width:100%;top:0px;left:0px;"></a>
-
-					<a href="onsale_5.html" style="position:absolute;width:100%;height:12px;line-height:12px;text-align:left;top:8px;left:8px;text-decoration:none;color:#ffffff;">周末尾单</a>
-
-				</div>
-
-			
-
-				<div class="tm_div" style="float:left;width:30.67%;height:auto;margin-left:2%;overflow:hidden;margin-top:10px;">
-
-					<a href="#"><img src="upload/m_pic/6.jpg" style="position:relative;width:100%;top:0px;left:0px;"></a>
-
-					<a href="#" style="position:absolute;width:100%;height:12px;line-height:12px;text-align:left;top:8px;left:8px;text-decoration:none;color:#ffffff;">在线咨询</a>
-
-				</div>
-
-			
-
-				<div class="tm_div" style="float:left;width:30.67%;height:auto;margin-left:2%;overflow:hidden;margin-top:10px;">
-
-					<a href="login.html"><img src="upload/m_pic/3.jpg" style="position:relative;width:100%;top:0px;left:0px;"></a>
-
-					<a href="login.html" style="position:absolute;width:100%;height:12px;line-height:12px;text-align:left;top:8px;left:8px;text-decoration:none;color:#ffffff;">我的订单</a>
-
-				</div>
-
-			
-
-				<div class="tm_div" style="float:left;width:30.67%;height:auto;margin-left:2%;overflow:hidden;margin-top:10px;">
-
-					<a href="rank.html"><img src="upload/m_pic/9.jpg" style="position:relative;width:100%;top:0px;left:0px;"></a>
-
-					<a href="rank.html" style="position:absolute;width:100%;height:12px;line-height:12px;text-align:left;top:8px;left:8px;text-decoration:none;color:#ffffff;">排行榜</a>
-
-				</div>
-
-			
-
+			<?php
+				}
+			?>
 		</div>
 
 	</div>

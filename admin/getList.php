@@ -17,7 +17,7 @@ if(isset($_GET['pagesize'])){
 	$pagesize = 10;
 }
 
-$aColumns = array('id','status','title','urlalias','listimage','remark', 'addtime','visitcount','categoryid','city','money','leftmoney','clicknum','priceperclick');
+$aColumns = array('id','status','title','urlalias','listimage','remark', 'addtime','visitcount','categoryid','city','money','leftmoney','clicknum','priceperclick','minprice','maxprice');
 
 
 /** 
@@ -137,24 +137,24 @@ foreach($datalist as $datatemp){
 	$tempcategory = getCategoryName($db,$datatemp['categoryid']);
 	$item[] = $tempcategory['name'];
 	$item[] = $datatemp['city'];
-	$item[] = ($datatemp['status']==0)?'<span class="label-default label label-danger">Banned</span>':'<span class="label-success label label-default">Active</span>';
+	$item[] = ($datatemp['status']==0)?'未发布':'已发布';
 	
-	$item[] = $datatemp['money'];
-	$item[] = $datatemp['leftmoney'];
-	$item[] = $datatemp['priceperclick'];
+	$item[] = '&yen;'.$datatemp['money'];
+	$item[] = '&yen;'.$datatemp['leftmoney'];
+	$item[] = '&yen;'.$datatemp['minprice'].' ~ '.'&yen;'.$datatemp['maxprice'];
 	$item[] = $datatemp['clicknum'];
 	$item[] = $datatemp['addtime'];
-	$item[] = '<a class="btn btn-success" target="_blank" href="http://www.zhuangxiuji.com.cn/cms/'.$datatemp['urlalias'].'.html">
-                <i class="glyphicon glyphicon-zoom-in icon-white"></i>
-                View
+	$item[] = '<a target="_blank" href="http://www.zhuangxiuji.com.cn/cms/admin/content.php?id='.$datatemp['id'].'">
+                <i></i>
+                详细&nbsp;
             </a>
-            <a class="btn btn-info" href="edit.php?id='.$datatemp['id'].'">
-                <i class="glyphicon glyphicon-edit icon-white"></i>
-                Edit
+            <a  href="edit.php?id='.$datatemp['id'].'">
+                <i></i>
+                &nbsp;编辑&nbsp;
             </a>
-            <a id="deleteitem'.$datatemp['id'].'" class="btn btn-danger" href="javascript:deletearticle(\''.$datatemp['id'].'\');">
-                <i class="glyphicon glyphicon-trash icon-white"></i>
-                Delete
+            <a id="deleteitem'.$datatemp['id'].'"  href="javascript:deletearticle(\''.$datatemp['id'].'\');">
+                <i></i>
+                &nbsp;删除
             </a>';
 	$outputdata['aaData'][] = $item;
 }

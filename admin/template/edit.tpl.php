@@ -28,12 +28,7 @@
                         <input type="hidden" name="articleid" value="<?php echo $data['articleid']?>">
                         <input type="text" class="form-control" id="title" name="title" value="<?php echo $data['title'];?>">
                     </div>
-                    <div class="form-group">
-                        <label for="remark">摘要</label>
-                        <textarea id="remark" rows="4" cols="120" style="width:100%;" name="remark">
-                            <?php echo $data['remark'];?>
-                        </textarea>
-                    </div>
+                    
                     <div class="form-group">
                         <label for="remark">状态</label>
                         <select name="status">
@@ -52,26 +47,45 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="remark">有效区域(城市)</label>
-                        <input type="text" class="form-control" id="city" name="city" value="<?php echo $data['city'];?>">
+                        <label for="city">有效区域(城市)  <span style="font-size:12px;color:grey;">!多个城市以竖线（‘|’）分隔，例如（成都|德阳|绵阳  ）<span></label><br>
+                        <textarea name="city" id="city" cols="100" rows="3">
+                            <?php echo $data['city'];?>
+                        </textarea>
                     </div>
                     <div class="form-group">
                         <label for="money">总金额</label>
                         <input type="text" class="form-control" id="money" name="money" value="<?php echo $data['money'];?>">
                     </div>
                     <div class="form-group">
+                        <label for="minprice">最低点击单价</label>
+                        <input type="text" class="form-control" id="minprice" name="minprice" value="<?php echo $data['minprice'];?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="maxprice">最高点击单价</label>
+                        <input type="text" class="form-control" id="maxprice" name="maxprice" value="<?php echo $data['maxprice'];?>">
+                    </div>
+
+                    <div class="form-group">
                         <label for="leftmoney">剩余金额</label>
                         <input type="text" class="form-control" id="leftmoney" name="leftmoney" value="<?php echo $data['leftmoney'];?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="visitcount">阅读数</label>
+                        <input type="text" class="form-control" id="visitcount" name="visitcount" value="<?php echo $data['visitcount'];?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="sharenum">分享数</label>
+                        <input type="text" class="form-control" id="sharenum" name="sharenum" value="<?php echo $data['sharenum'];?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="clicknum">点击数</label>
+                        <input type="text" class="form-control" id="clicknum" name="clicknum" value="<?php echo $data['clicknum'];?>">
                     </div>
                     <div class="form-group">
                         <label for="priceperclick">人均</label>
                         <input type="text" class="form-control" id="priceperclick" name="priceperclick" value="<?php echo $data['priceperclick'];?>">
                     </div>
-
-                    <div class="form-group">
-                        <label for="clicknum">点击数</label>
-                        <input type="text" class="form-control" id="clicknum" name="clicknum" value="<?php echo $data['clicknum'];?>">
-                    </div>
+                    
                     
                     <div class="form-group">
                         <label for="remark">内容</label>

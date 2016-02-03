@@ -6,7 +6,7 @@
 
 	<div id="top">
 
-		<a id="logo" href="index.html"><img src="source/images/home.png" align="top"></a>
+		<a id="logo" href="index.php"><img src="source/images/home.png" align="top"></a>
 
 		<a id="title">分类列表 --同城新媒</a>
 
@@ -28,7 +28,10 @@
 
 		
 
-		
+		<?php 
+		if(!empty($contents)){
+			foreach($contents as $key=>$content){
+		?>
 
 		<input id="endtime" name="endtime" type="hidden" value="Sun Aug 31 03:00:00 CST 2014">
 
@@ -36,9 +39,10 @@
 
 			<div class="tm_pro">
 
-				<a href="content.php"><img src="uploadpic/onsale/20140814014938.jpg" width="100%"></a>
+				<a href="content.php?id=<?php echo $content['id'];?>">
+					<img src="<?php echo $content['listimage'];?>" width="100%"></a>
 
-				<div class="tm_type"><a href="onsale_0.html"></a></div>
+				<div class="tm_type"><a href="content.php?id=<?php echo $content['id'];?>"></a></div>
 
 				<div class="tm_title">
 
@@ -46,9 +50,14 @@
 
 					<div class="tm_title_con">
 
-						<div class="tm_title_con_1"><a href="content.php">【暑期旅游】<大溪闯滩激情五星尊享2日></a></div>
+						<div class="tm_title_con_1">
+							<a href="content.php?id=<?php echo $content['id'];?>">
+								<?php echo $content['title'];?>
+							</a>
+						</div>
 
-						<div class="tm_title_con_2"><a href="content.php">★2016-01-25</a></div>
+
+						<div class="tm_title_con_2">★<?php echo date('Y-m-d',strtotime($content['addtime']));?></div>
 
 					</div>
 
@@ -58,167 +67,28 @@
 
 			<div class="tm_price">
 
-				<div class="tm_price_1" style="width:45%">&nbsp;剩余：￥230.00</div>
-				<div class="tm_price_2" style="text-align:left;width:55%">&nbsp;人均：￥0.5-￥1.2</div>
+				<div class="tm_price_1" style="width:45%">&nbsp;剩余：￥<?php echo $content['leftmoney'];?></div>
+				<div class="tm_price_2" style="text-align:left;width:55%">&nbsp;人均：￥<?php echo $content['minprice'];?>-￥<?php echo $content['maxprice'];?></div>
 
 			</div>
 
 		</div>
 
-		
-
-		<input id="endtime" name="endtime" type="hidden" value="Sun Aug 31 03:00:00 CST 2014">
-
-		<div class="tm_div">
-
-			<div class="tm_pro">
-
-				<a href="content.php"><img src="uploadpic/onsale/20140813011930.jpg" width="100%"></a>
-
-				<div class="tm_type"><a href="onsale_0.html"></a></div>
-
-				<div class="tm_title">
-
-					<div class="tm_title_bg"></div>
-
-					<div class="tm_title_con">
-
-						<div class="tm_title_con_1"><a href="lvyoutuan_TR043103.html">【9月特价】<台湾6日游></a></div>
-
-						<div class="tm_title_con_2"><a href="lvyoutuan_TR043103.html">★2016-01-25</a></div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="tm_price">
-
-				<div class="tm_price_1" style="width:45%">&nbsp;剩余：￥230.00</div>
-				<div class="tm_price_2" style="text-align:left;width:55%">&nbsp;人均：￥0.5-￥1.2</div>
-			</div>
-
-		</div>
-
-		
-
-		<input id="endtime" name="endtime" type="hidden" value="Sun Aug 31 03:00:00 CST 2014">
-
-		<div class="tm_div">
-
-			<div class="tm_pro">
-
-				<a href="content.php"><img src="uploadpic/onsale/20140812023816.jpg" width="100%"></a>
-
-				<div class="tm_type"><a href="onsale_0.html"></a></div>
-
-				<div class="tm_title">
-
-					<div class="tm_title_bg"></div>
-
-					<div class="tm_title_con">
-
-						<div class="tm_title_con_1"><a href="lvyoutuan_TR043099.html">【中秋特惠】<长滩双飞5日游></a></div>
-
-						<div class="tm_title_con_2"><a href="lvyoutuan_TR043099.html">★2016-01-25</a></div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="tm_price">
-
-				<div class="tm_price_1" style="width:45%">&nbsp;剩余：￥230.00</div>
-				<div class="tm_price_2" style="width:55%;text-align:left;">&nbsp;人均：￥0.5-￥1.2</div>
-
-			</div>
-
-		</div>
-
-		
-
-		<input id="endtime" name="endtime" type="hidden" value="Sun Aug 31 03:00:00 CST 2014">
-
-		<div class="tm_div">
-
-			<div class="tm_pro">
-
-				<a href="content.php"><img src="uploadpic/onsale/20140811024657.jpg" width="100%"></a>
-
-				<div class="tm_type"><a href="onsale_0.html"></a></div>
-
-				<div class="tm_title">
-
-					<div class="tm_title_bg"></div>
-
-					<div class="tm_title_con">
-
-						<div class="tm_title_con_1"><a href="lvyoutuan_TR043034.html">【9月特惠】<首尔五日超值游> </a></div>
-
-						<div class="tm_title_con_2"><a href="lvyoutuan_TR043034.html">★2016-01-25</a></div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="tm_price">
-
-				<div class="tm_price_1" style="width:45%">&nbsp;剩余：￥230.00</div>
-				<div class="tm_price_2" style="width:55%;text-align:left;">&nbsp;人均：￥0.5-￥1.2</div>
-
-			</div>
-
-		</div>
-
-		
-
-		<input id="endtime" name="endtime" type="hidden" value="Sun Aug 31 03:00:00 CST 2014">
-
-		<div class="tm_div">
-
-			<div class="tm_pro">
-
-				<a href="content.php"><img src="uploadpic/onsale/20140807020603.jpg" width="100%"></a>
-
-				<div class="tm_type"><a href="onsale_0.html"></a></div>
-
-				<div class="tm_title">
-
-					<div class="tm_title_bg"></div>
-
-					<div class="tm_title_con">
-
-						<div class="tm_title_con_1"><a href="lvyoutuan_TR042792.html">【暑期特惠】<三清山避暑含餐3日></a></div>
-
-						<div class="tm_title_con_2"><a href="lvyoutuan_TR042792.html">★2016-01-25</a></div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="tm_price">
-
-				<div class="tm_price_1" style="width:45%">&nbsp;剩余：￥230.00</div>
-				<div class="tm_price_2" style="width:55%;text-align:left;">&nbsp;人均：￥0.5-￥1.2</div>
-			</div>
-
-		</div>
+		<?php
+			}
+		}else{
+			echo '该分类下还没有数据';
+		}	
+		?>
 
 		
 
 	</div>
 
 	
-
+	<!--
 	<div class="more" id="more">点击查看更多</div>
-
+	-->
 <script>
 
 $(function () {

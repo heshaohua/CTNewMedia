@@ -10,7 +10,7 @@ require_once './include/functions.php';
 
 //用户openid
 if(empty($_SESSION['openid'])){
-	checkOpenid();
+	checkOpenid($db,'snsapi_userinfo');
 }
 
 

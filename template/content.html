@@ -70,29 +70,55 @@ wx.ready(function(){
 	        //alert(JSON.stringify(res));
 	    }
 	});
+
+	/*
+	wx.getLocation({
+	    type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+	    success: function (res) {
+	        var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+	        var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+	        var speed = res.speed; // 速度，以米/每秒计
+	        var accuracy = res.accuracy; // 位置精度
+	        $.ajax({
+	        	type:"POST",
+	        	url:"http://www.zhuangxiuji.com.cn/cms/content.php",
+	        	data:"action=location&latitude="+latitude+"&longitude="+longitude,
+	        	success:function(msg){}
+
+	        });
+
+	    }
+	});
+	*/
 });
 
 <?php if(!empty($shareopenid)):?>
 $(function(){
-	$.ajax({
-		type:"POST",
-	    url:'http://www.zhuangxiuji.com.cn/cms/content.php',
-	    data:"action=clickshare&id=<?php echo $content['id'];?>&openid=<?php echo $_SESSION['openid'];?>&shareopenid=<?php echo $shareopenid;?>",
-	    success:function(msg){
-	    	setTimeout(function(){alert('本次阅读为你的好友增加￥0.5');},3000);
-	    	//to do 引入artDialog，丰富交互
-	    	
-	    }
-	});
+	setTimeout(function(){
+		$.ajax({
+			type:"POST",
+		    url:'http://www.zhuangxiuji.com.cn/cms/content.php',
+		    data:"action=clickshare&id=<?php echo $content['id'];?>&openid=<?php echo $_SESSION['openid'];?>&shareopenid=<?php echo $shareopenid;?>",
+		    success:function(msg){
+		    	setTimeout(function(){alert('本次阅读为你的好友增加￥0.5');},3000);
+		    	//to do 引入artDialog，丰富交互
+		    	
+		    }
+		});
+	},3000);
+	
 });
 <?php endif;?>
 </script>
+<style>
+.proinfo_1 img{max-width: 100%;}
 
+</style>
 <div id="frame" style="margin-bottom:50px;">
 
 	<div id="top">
 
-		<a id="logo" href="index.html"><img src="source/images/home.png" align="top"></a>
+		<a id="logo" href="index.php"><img src="source/images/home.png" align="top"></a>
 
 		<a id="title">文章详细 --同城新媒</a>
 
@@ -116,14 +142,13 @@ $(function(){
 			<div class="tour_title tc0" style="font-size:20px;"><?php echo $content['title'];?></div>
 			<div style="border: 1px #ECECEC dashed;background-color: #fff;padding: 5px;font-size: 12px;color: #FF5705;margin-top: 5px;margin-bottom: 10px;line-height:20px;height:40px;">
 				     
-				<div style="width:35%;float:left;height:20px;">阅读： 30002</div>
-				<div style="width:45%;float:left;height:20px;">发布：2016-01-25</div>
-				<div style="width:35%;float:left;height:20px;">全部：￥300.00</div>
-				<div style="width:30%;float:left;height:20px;">剩余：￥20.00</div> 
-				<div style="width:30%;float:left;height:20px;">人均：0.35-1.2</div>           
+				<div style="width:35%;float:left;height:20px;">阅读：<?php echo $content['visitcount'];?></div>
+				<div style="width:45%;float:left;height:20px;">发布：<?php echo date('Y-m-d',strtotime($content['addtime']));?></div>
+				<div style="width:35%;float:left;height:20px;">剩余：￥<?php echo $content['leftmoney'];?></div> 
+				<div style="width:60%;float:left;height:20px;">人均：￥<?php echo $content['minprice'];?>-￥<?php echo $content['maxprice'];?></div>           
 			</div>
 			<div style="width:100%;font-size:12px;">
-				分钱区域：成都市(武侯区，青羊区，双流县，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区，青羊区)
+				分钱区域：<?php echo $content['city'];?>
 			</div>
 			<div class="proinfo_1">
 				<?php echo $content['content'];?>

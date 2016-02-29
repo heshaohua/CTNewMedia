@@ -135,6 +135,7 @@ class WechatRequest{
      */
     public static function text(&$request){
         $content = '收到文本消息';
+        $content = '欢迎您关注我们的微信，将为您竭诚服务,<a href="http://www.zhuangxiuji.com.cn/cms/">微官网</a>,功能开发测试中';
         return ResponsePassive::text($request['fromusername'], $request['tousername'], $content);
     }
 

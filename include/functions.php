@@ -13,7 +13,7 @@ function getAllCategory($db){
 }
 
 
-//检查用户openid，不存在则获取
+//网页授权
 function checkOpenid($db,$scope = 'snsapi_base'){
 	if(empty($_SESSION['openid'])&&!isset($_GET['code'])){
 		//授权请求

@@ -58,7 +58,7 @@ wx.ready(function(){
 	        //请求统计接口
 	        $.ajax({
 	        	type:"POST",
-	        	url:'http://www.zhuangxiuji.com.cn/cms/content.php',
+	        	url:'<?php echo SITE_DOMAIN;?>contentlog.php',
 	        	data:"action=share&id=<?php echo $content['id'];?>&openid=<?php echo $_SESSION['openid'];?>",
 	        	success:function(msg){alert('分享成功');}
 	        });
@@ -71,7 +71,7 @@ wx.ready(function(){
 	    }
 	});
 
-	/*
+	
 	wx.getLocation({
 	    type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
 	    success: function (res) {
@@ -81,15 +81,14 @@ wx.ready(function(){
 	        var accuracy = res.accuracy; // 位置精度
 	        $.ajax({
 	        	type:"POST",
-	        	url:"http://www.zhuangxiuji.com.cn/cms/content.php",
+	        	url:"<?php echo SITE_DOMAIN;?>content.php",
 	        	data:"action=location&latitude="+latitude+"&longitude="+longitude,
 	        	success:function(msg){}
 
 	        });
-
 	    }
 	});
-	*/
+	
 });
 
 <?php if(!empty($shareopenid)):?>
@@ -97,7 +96,7 @@ $(function(){
 	setTimeout(function(){
 		$.ajax({
 			type:"POST",
-		    url:'http://www.zhuangxiuji.com.cn/cms/content.php',
+		    url:'<?php echo SITE_DOMAIN;?>content.php',
 		    data:"action=clickshare&id=<?php echo $content['id'];?>&openid=<?php echo $_SESSION['openid'];?>&shareopenid=<?php echo $shareopenid;?>",
 		    success:function(msg){
 		    	setTimeout(function(){alert('本次阅读为你的好友增加￥0.5');},3000);

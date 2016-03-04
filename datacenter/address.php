@@ -2,7 +2,7 @@
 /**
  * 地址转换
  */
-class AddressModel{
+class Addressinfo{
 
 	/**
 	 * 根据ip获取位置信息

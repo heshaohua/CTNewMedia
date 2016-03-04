@@ -5,7 +5,11 @@
 
 ini_set('display_errors', 1);
 require_once 'config.inc.php';
-require_once 'include/functions.php';
+
+//用户openid
+if(empty($_SESSION['openid'])){
+	SystemTool::checkOpenid($db,'snsapi_userinfo');
+}
 
 $pageidx = 'category';
 $title = '分类列表';
@@ -18,7 +22,5 @@ if(empty($categoryid)){
 }
 
 $contents = $db->fetch_all("select * from articles where categoryid=".$categoryid);
-
-
 //template
 include 'template/category.html';

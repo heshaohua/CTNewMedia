@@ -17,7 +17,7 @@ if(isset($_GET['shareopenid'])&&!empty($_GET['shareopenid'])){
 }
 
 //位置信息,ajax请求处理
-if($_POST['action']==='location'){
+if(isset($_POST['action'])&&$_POST['action']==='location'){
 	$latitude = $_POST['latitude'];
 	$longitude = $_POST['longitude'];
 	$_SESSION['location'] = $latitude.','.$longitude;
@@ -41,9 +41,9 @@ $signPackage = \LaneWeChat\Core\JsapiTicket::getSignPackage($url);
 //share setting
 
 $shareinfo['title'] = $content['title'];
-$url = SITE_DOMAIN."/content.php?id=".$content['id'];
-if(Userinfo::checkSubscribe($db,$openid)){
-	$url .= '&shareopenid='.$openid;
+$url = SITE_DOMAIN."content.php?id=".$content['id'];
+if(Userinfo::checkSubscribe($db,$_SESSION['openid'])){
+	$url .= '&shareopenid='.$_SESSION['openid'];
 }	
 $shareinfo['link'] = $url;
 $shareinfo['imgUrl'] = $content['listimage'];

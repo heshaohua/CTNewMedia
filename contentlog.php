@@ -11,8 +11,23 @@ if(isset($_POST['action'])&&$_POST['action']=='share'){
 	$contentid = intval($_POST['id']);
 	$openid = trim($_POST['openid']);
 	if(!empty($contentid)&&!empty($openid)){
-		ShareCount::logShare($db,$contentid,$openid);	
+		if(empty($_SESSION['openid'])){
+			echo json_encode(array('result'=>'failed','msg'=>'获取session openid失败'));
+			exit;
+		}
+		if($_SESSION['openid']!=$openid){
+			echo json_encode(array('result'=>'failed','msg'=>'openid与session openid不符'));
+			exit;
+		}
+		if(ShareCount::logShare($db,$contentid,$openid)){
+			echo json_encode(array('result'=>'success','msg'=>'分享成功'));
+			exit;
+		}else{
+			echo json_encode(array('result'=>'failed','msg'=>'数据库错误'));
+			exit;
+		}	
 	}
+	echo json_encode(array('result'=>'failed','msg'=>'参数错误'));
 	exit;
 }
 
@@ -48,19 +63,19 @@ if(isset($_POST['action'])&&$_POST['action']=='clickshare'){
 		switch($clickresult){
 			case -1:
 				$db->query("insert into clicklog(`contentid`,`openid`,`shareopenid`,`ip`,`msg`) values(".$contentinfo['id'].",'".$clickOpenid."','".$shareOpenid."','".$_SERVER['REMOTE_ADDR']."','重复点击')");
-				$msg = array('result'=>false,'msg'=>'重复点击')
+				$msg = array('result'=>false,'msg'=>'重复点击');
 				echo json_encode($msg);
 				exit;
 				break;
 			case 0:
 				$db->query("insert into clicklog(`contentid`,`openid`,`shareopenid`,`ip`,`msg`) values(".$contentinfo['id'].",'".$clickOpenid."','".$shareOpenid."','".$_SERVER['REMOTE_ADDR']."','位置不在分钱范围内')");
-				$msg = array('result'=>false,'msg'=>'位置不在分钱范围内')
+				$msg = array('result'=>false,'msg'=>'位置不在分钱范围内');
 				echo json_encode($msg);
 				exit;
 				break;
 			case -2:
 				$db->query("insert into clicklog(`contentid`,`openid`,`shareopenid`,`ip`,`msg`) values(".$contentinfo['id'].",'".$clickOpenid."','".$shareOpenid."','".$_SERVER['REMOTE_ADDR']."','数据插入错误')");
-				$msg = array('result'=>false,'msg'=>'数据插入错误')
+				$msg = array('result'=>false,'msg'=>'数据插入错误');
 				echo json_encode($msg);
 				exit;
 				break;

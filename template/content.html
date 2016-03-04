@@ -60,14 +60,17 @@ wx.ready(function(){
 	        	type:"POST",
 	        	url:'<?php echo SITE_DOMAIN;?>contentlog.php',
 	        	data:"action=share&id=<?php echo $content['id'];?>&openid=<?php echo $_SESSION['openid'];?>",
-	        	success:function(msg){alert('分享成功');}
+	        	success:function(msg){
+	        		var objmsg = eval("("+msg+")");
+	        		console.log(objmsg.msg);
+	        	}
 	        });
 	    },
 	    cancel: function (res) {
 	        //alert('已取消');
 	    },
 	    fail: function (res) {
-	        //alert(JSON.stringify(res));
+	        console.log(res);
 	    }
 	});
 
@@ -84,7 +87,6 @@ wx.ready(function(){
 	        	url:"<?php echo SITE_DOMAIN;?>content.php",
 	        	data:"action=location&latitude="+latitude+"&longitude="+longitude,
 	        	success:function(msg){}
-
 	        });
 	    }
 	});

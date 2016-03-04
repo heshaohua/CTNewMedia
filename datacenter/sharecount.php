@@ -26,6 +26,11 @@ class ShareCount{
 					)";
 			$db->query($sql);
 		}
+		$errormsg = $db->error();
+		if(!empty($errormsg))
+			return false;
+		else
+			return true;
 	}
 	
 	

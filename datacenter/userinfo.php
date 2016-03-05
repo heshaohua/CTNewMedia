@@ -34,5 +34,13 @@ class Userinfo{
 		return $result;
 	}
 
+	//拉取用户信息，网页授权
+	public static function getUserinfoPage($access_token,$openid){
+		$url = 'https://api.weixin.qq.com/sns/userinfo?access_token='.$access_token.'&openid='.$openid.'&lang=zh_CN';
+		$tempinfo = file_get_contents($url);
+		$userinfo = json_decode($tempinfo,true);
+		return $userinfo;
+	}
+
 }
 ?>

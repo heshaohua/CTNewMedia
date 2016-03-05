@@ -41,7 +41,8 @@ class SystemTool{
 			//插入用户信息
 			if($scope=='snsapi_userinfo'){
 				if(!Userinfo::checkIfuserInfoinDb($db,$tempinfo['openid'])){
-					\LaneWeChat\Core\UserManage::addUser($tempinfo['openid']);
+					$userinfo = Userinfo::getUserinfoPage($tempinfo['access_token'],$tempinfo['openid']);
+					\LaneWeChat\Core\UserManage::insertPageuserinfo($userinfo);
 				}
 			}
 		}

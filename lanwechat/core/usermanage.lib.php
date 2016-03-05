@@ -210,4 +210,47 @@ class UserManage{
     * 更新用户信息
     * 
     */
+    public static function updateUserData($userinfo){
+        $db = new mysql;
+        $db->connect(DBHOST, DBUSER, DBPASSWORD, DBNAME);
+        $sql = "update users set 
+                subscribe = '".$userinfo['subscribe']."',
+                nickname = '".$userinfo['nickname']."',
+                sex = '".$userinfo['sex']."',
+                language = '".$userinfo['language']."',
+                city = '".$userinfo['city']."',
+                province = '".$userinfo['province']."',
+                country = '".$userinfo['country']."',
+                headimgurl = '".$userinfo['headimgurl']."'
+                where openid = '".$userinfo['openid']."'
+               "; 
+        $db->query($sql);   
+    }
+
+    /**
+    * 网页用户授权，用户信息插入数据库
+    */
+    public static function insertPageuserinfo($userinfo){
+        $db = new mysql;
+        $db->connect(DBHOST, DBUSER, DBPASSWORD, DBNAME);
+        $sql = "insert into users
+                    (`openid`,`nickname`,`sex`,`language`,`city`,`province`,`country`,`headimgurl`) 
+                values(
+                    
+                    '".$userinfo['openid']."',
+                    '".$userinfo['nickname']."',
+                    '".$userinfo['sex']."',
+                    '".$userinfo['language']."',
+                    '".$userinfo['city']."',
+                    '".$userinfo['province']."',
+                    '".$userinfo['country']."',
+                    '".$userinfo['headimgurl']."'
+                )";
+        $db->query($sql);
+        $userid = $db->insert_id();
+        if($userid)
+            return $userid;
+        else
+            return false;
+    }
 }

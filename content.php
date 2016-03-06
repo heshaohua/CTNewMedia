@@ -9,6 +9,7 @@ require_once './config.inc.php';
 //用户openid
 if(empty($_SESSION['openid'])){
 	SystemTool::checkOpenid($db,'snsapi_userinfo');
+	exit;
 }
 
 //share openid

@@ -37,9 +37,11 @@ if(isset($_POST['action'])&&$_POST['action']=='clickshare'){
 	$contentid = intval($_POST['id']);
 	$clickOpenid = trim($_POST['openid']);
 	$shareOpenid = trim($_POST['shareopenid']);
+	
+	$contentinfo = ContentClass::getArticle($db,$contentid);
 
 	if(!empty($contentid)&&!empty($clickOpenid)&&!empty($shareOpenid)&&$clickOpenid!=$shareOpenid){
-		$contentinfo = ContentClass::getArticle($db,$contentid);
+		
 		if($contentinfo===false){
 			echo '0';
 			exit;
@@ -90,6 +92,8 @@ if(isset($_POST['action'])&&$_POST['action']=='clickshare'){
 				echo json_encode($msg);
 				exit;
 		}	
+	}else{
+		$db->query("insert into clicklog(`contentid`,`openid`,`shareopenid`,`ip`,`msg`) values(".$contentinfo['id'].",'".$clickOpenid."','".$shareOpenid."','".$_SERVER['REMOTE_ADDR']."','数据异常')");
 	}
 	echo '0';
 	exit;

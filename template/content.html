@@ -98,7 +98,7 @@ $(function(){
 	setTimeout(function(){
 		$.ajax({
 			type:"POST",
-		    url:'<?php echo SITE_DOMAIN;?>content.php',
+		    url:'<?php echo SITE_DOMAIN;?>contentlog.php',
 		    data:"action=clickshare&id=<?php echo $content['id'];?>&openid=<?php echo $_SESSION['openid'];?>&shareopenid=<?php echo $shareopenid;?>",
 		    success:function(msg){
 		    	setTimeout(function(){alert('本次阅读为你的好友增加￥0.5');},3000);

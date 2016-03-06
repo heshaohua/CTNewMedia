@@ -25,13 +25,13 @@ class SystemTool{
 		if(empty($_SESSION['openid'])&&!isset($_GET['code'])){
 			//授权请求
 			$url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-			//file_put_contents('url.txt',$url."\n",FILE_APPEND);
+			file_put_contents('url.txt',$url."\n",FILE_APPEND);
 			$redirect_uri = $url;
 			\LaneWeChat\Core\WeChatOAuth::getCode($redirect_uri, $state=1, $scope);
 		}elseif(isset($_GET['code'])){
 			$code = $_GET['code'];
 			$tempinfo = \LaneWeChat\Core\WeChatOAuth::getAccessTokenAndOpenId($code);
-			//file_put_contents("userinfo.txt", print_r($tempinfo,true));
+			file_put_contents("userinfo.txt", print_r($tempinfo,true));
 			$_SESSION['openid'] = $tempinfo['openid'];
 			$_SESSION['access_token'] = $tempinfo['access_token'];
 

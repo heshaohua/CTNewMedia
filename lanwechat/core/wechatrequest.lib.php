@@ -134,8 +134,7 @@ class WechatRequest{
      * @return array
      */
     public static function text(&$request){
-        $content = '收到文本消息';
-        $content = '欢迎您关注我们的微信，将为您竭诚服务,<a href="http://www.zhuangxiuji.com.cn/cms/">微官网</a>,功能开发测试中';
+        $content = '欢迎您关注我们的微信，将为您竭诚服务,功能开发测试中，访问 <a href="http://www.zhuangxiuji.com.cn/cms/">微官网</a>';
         return ResponsePassive::text($request['fromusername'], $request['tousername'], $content);
     }
 
@@ -210,11 +209,14 @@ class WechatRequest{
      * @return array
      */
     public static function eventSubscribe(&$request){
-        $content = '欢迎您关注我们的微信，将为您竭诚服务,<a href="http://www.zhuangxiuji.com.cn/cms/">微官网</a>,功能开发测试中';
+        $content = '欢迎您关注我们的微信，将为您竭诚服务,功能开发测试中，访问 <a href="http://www.zhuangxiuji.com.cn/cms/">微官网</a>';
 
         //关注的时候用户信息存入数据库
         if(!UserManage::isUserExists($request['fromusername'])){
             UserManage::addUser($request['fromusername']);
+        }else{
+            $userinfo = UserManage::getUserInfo($request['fromusername']);
+            UserManage::updateUserData($userinfo);
         }
         
         return ResponsePassive::text($request['fromusername'], $request['tousername'], $content);
@@ -226,7 +228,7 @@ class WechatRequest{
      * @return array
      */
     public static function eventUnsubscribe(&$request){
-        $content = '为什么不理我了？';
+        $content = '感谢您的支持，我们会继续努力做得更好';
         return ResponsePassive::text($request['fromusername'], $request['tousername'], $content);
     }
 
@@ -236,7 +238,16 @@ class WechatRequest{
      * @return array
      */
     public static function eventQrsceneSubscribe(&$request){
-        $content = '欢迎您关注我们的微信，将为您竭诚服务';
+        $content = '欢迎您关注我们的微信，将为您竭诚服务,功能开发测试中，访问 <a href="http://www.zhuangxiuji.com.cn/cms/">微官网</a>';
+
+        //关注的时候用户信息存入数据库
+        if(!UserManage::isUserExists($request['fromusername'])){
+            UserManage::addUser($request['fromusername']);
+        }else{
+            $userinfo = UserManage::getUserInfo($request['fromusername']);
+            UserManage::updateUserData($userinfo);
+        }
+
         return ResponsePassive::text($request['fromusername'], $request['tousername'], $content);
     }
 
@@ -246,7 +257,7 @@ class WechatRequest{
      * @return array
      */
     public static function eventScan(&$request){
-        $content = '您已经关注了哦～';
+        $content = '欢迎您关注我们的微信，将为您竭诚服务,功能开发测试中，访问 <a href="http://www.zhuangxiuji.com.cn/cms/">微官网</a>';
         return ResponsePassive::text($request['fromusername'], $request['tousername'], $content);
     }
 

@@ -9,6 +9,8 @@ require_once './config.inc.php';
 
 //用户openid
 if(empty($_SESSION['openid'])){
+	$redirecturl = SITE_DOMAIN.'index.php';
+	$redirecturl .= '#'.time();
 	SystemTool::checkOpenid($db,'snsapi_userinfo');
 }
 

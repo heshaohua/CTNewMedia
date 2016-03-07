@@ -49,3 +49,30 @@
 [Sun Mar 06 10:09:30 2016] [error] [client 171.221.148.15] PHP Notice:  Undefined index: province in /var/www/html/cms/lanwechat/core/usermanage.lib.php on line 245
 [Sun Mar 06 10:09:30 2016] [error] [client 171.221.148.15] PHP Notice:  Undefined index: country in /var/www/html/cms/lanwechat/core/usermanage.lib.php on line 246
 [Sun Mar 06 10:09:30 2016] [error] [client 171.221.148.15] PHP Notice:  Undefined index: headimgurl in /var/www/html/cms/lanwechat/core/usermanage.lib.php on line 247
+[Sun Mar 06 12:35:54 2016] [error] [client 66.249.79.42] File does not exist: /var/www/html/weixin/robots.txt
+[Sun Mar 06 17:21:02 2016] [error] [client 123.125.71.89] File does not exist: /var/www/html/weixin/robots.txt
+[Sun Mar 06 19:00:24 2016] [error] [client 123.125.71.87] File does not exist: /var/www/html/weixin/robots.txt
+[Mon Mar 07 01:38:10 2016] [error] [client 66.249.79.40] File does not exist: /var/www/html/weixin/robots.txt
+[Mon Mar 07 03:10:34 2016] [error] [client 66.249.79.40] Directory index forbidden by Options directive: /var/www/html/weixin/Public/static/
+[Mon Mar 07 05:43:30 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/10.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 05:43:30 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/source/images/arrows.png, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 05:43:30 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/11.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 05:43:30 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/12.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 05:43:30 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/13.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 05:43:30 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/14.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 05:43:30 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/15.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 05:43:31 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/16.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 05:43:31 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/18.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 05:43:31 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/17.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 05:43:31 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/20.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 05:43:31 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/21.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 05:43:31 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/19.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 06:09:41 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/source/images/arrows.png, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 06:09:41 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/10.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 06:09:41 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/11.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 06:09:41 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/12.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 06:09:41 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/13.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 06:09:42 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/14.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 06:09:42 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/15.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 06:09:42 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/17.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 06:09:43 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/16.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1

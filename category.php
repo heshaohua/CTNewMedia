@@ -8,7 +8,9 @@ require_once 'config.inc.php';
 
 //用户openid
 if(empty($_SESSION['openid'])){
-	SystemTool::checkOpenid($db,'snsapi_userinfo');
+	$redirecturl = SITE_DOMAIN.'category.php';
+	$redirecturl .= '#'.time();
+	SystemTool::checkOpenid($db,'snsapi_userinfo',$redirecturl);
 }
 
 $pageidx = 'category';

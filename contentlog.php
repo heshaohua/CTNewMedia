@@ -5,6 +5,12 @@
 ini_set('display_errors', 1);
 require_once './config.inc.php';
 
+if(!isset($_SESSION['openid'])||empty($_SESSION['opendi'])){
+	echo json_encode(array('result'=>'failed','msg'=>'机器人操作'));
+	SystemTool::systemLog($db,'统计错误','疑似机器人提交数据',print_r($_POST,true));
+	exit;
+}
+
 
 //处理分享统计
 if(isset($_POST['action'])&&$_POST['action']=='share'){

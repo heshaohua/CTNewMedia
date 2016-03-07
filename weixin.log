@@ -76,3 +76,118 @@
 [Mon Mar 07 06:09:42 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/15.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
 [Mon Mar 07 06:09:42 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/17.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
 [Mon Mar 07 06:09:43 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/16.jpg, referer: http://www.zhuangxiuji.com.cn/cms/?code=021573507368005520d86c4beb70e4ao&state=1
+[Mon Mar 07 06:43:12 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/content.php on line 45
+[Mon Mar 07 06:43:12 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 62
+[Mon Mar 07 06:43:12 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 102
+[Mon Mar 07 06:43:38 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/content.php on line 45
+[Mon Mar 07 06:43:38 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 62
+[Mon Mar 07 06:43:38 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 102
+[Mon Mar 07 06:47:08 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/content.php on line 45
+[Mon Mar 07 06:47:08 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 62
+[Mon Mar 07 06:47:08 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 102
+[Mon Mar 07 06:51:32 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/content.php on line 45
+[Mon Mar 07 06:51:32 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 62
+[Mon Mar 07 06:51:32 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 102
+[Mon Mar 07 06:53:34 2016] [error] [client 218.104.207.158] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /var/www/html/cms/lanwechat/core/curl.lib.php on line 150
+[Mon Mar 07 07:00:56 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/content.php on line 45
+[Mon Mar 07 07:00:56 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 62
+[Mon Mar 07 07:00:56 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 102
+[Mon Mar 07 07:02:24 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/content.php on line 45
+[Mon Mar 07 07:02:24 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 62
+[Mon Mar 07 07:02:24 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 102
+[Mon Mar 07 07:03:17 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/content.php on line 45
+[Mon Mar 07 07:03:17 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 62
+[Mon Mar 07 07:03:17 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 102
+[Mon Mar 07 07:03:30 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/content.php on line 45
+[Mon Mar 07 07:03:30 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 62
+[Mon Mar 07 07:03:30 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 102
+[Mon Mar 07 07:05:38 2016] [error] [client 218.104.207.158] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /var/www/html/cms/lanwechat/core/curl.lib.php on line 150
+[Mon Mar 07 07:16:13 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/content.php on line 45
+[Mon Mar 07 07:16:13 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 62
+[Mon Mar 07 07:16:13 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 102
+[Mon Mar 07 07:22:20 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/content.php on line 53
+[Mon Mar 07 07:22:20 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 62
+[Mon Mar 07 07:22:20 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 102
+[Mon Mar 07 07:28:46 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/content.php on line 53
+[Mon Mar 07 07:28:46 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 62
+[Mon Mar 07 07:28:46 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: openid in /var/www/html/cms/template/content.html on line 102
+[Mon Mar 07 07:44:25 2016] [error] [client 223.85.132.34] PHP Notice:  Undefined variable: scope in /var/www/html/cms/go.php on line 16
+[Mon Mar 07 07:46:02 2016] [error] [client 182.131.12.11] PHP Notice:  Undefined index: scope in /var/www/html/cms/go.php on line 9
+[Mon Mar 07 07:46:05 2016] [error] [client 180.153.206.16] PHP Notice:  Undefined index: scope in /var/www/html/cms/go.php on line 9
+[Mon Mar 07 07:46:19 2016] [error] [client 180.153.206.13] PHP Notice:  Undefined index: scope in /var/www/html/cms/go.php on line 9, referer: p\xb1D\x02
+[Mon Mar 07 07:46:43 2016] [error] [client 182.131.12.11] PHP Notice:  Undefined index: redirecturl in /var/www/html/cms/go.php on line 8
+[Mon Mar 07 07:46:43 2016] [error] [client 182.131.12.11] PHP Notice:  Undefined index: scope in /var/www/html/cms/go.php on line 9
+[Mon Mar 07 07:47:42 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: redirecturl in /var/www/html/cms/go.php on line 8
+[Mon Mar 07 07:47:42 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: scope in /var/www/html/cms/go.php on line 9
+[Mon Mar 07 07:51:15 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: id in /var/www/html/cms/content.php on line 9, referer: http://www.zhuangxiuji.com.cn/cms/content.php?id=63&shareopenid=owB_Pw8KlC2rq3Vll3likjXg-xWY&from=timeline&isappinstalled=0
+[Mon Mar 07 07:52:02 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: id in /var/www/html/cms/content.php on line 9, referer: http://www.zhuangxiuji.com.cn/cms/content.php?id=63&shareopenid=owB_Pw8KlC2rq3Vll3likjXg-xWY&from=timeline&isappinstalled=0
+[Mon Mar 07 08:18:17 2016] [error] [client 182.131.12.11] PHP Notice:  Undefined index: scope in /var/www/html/cms/go.php on line 9
+[Mon Mar 07 08:21:37 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: id in /var/www/html/cms/content.php on line 9, referer: http://www.zhuangxiuji.com.cn/cms/content.php?id=63&shareopenid=owB_Pw8KlC2rq3Vll3likjXg-xWY&from=timeline&isappinstalled=0
+[Mon Mar 07 08:25:20 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: id in /var/www/html/cms/content.php on line 9, referer: http://www.zhuangxiuji.com.cn/cms/content.php?id=63&shareopenid=owB_Pw8KlC2rq3Vll3likjXg-xWY
+[Mon Mar 07 08:33:25 2016] [error] [client 180.153.206.32] PHP Notice:  Undefined index: scope in /var/www/html/cms/go.php on line 9
+[Mon Mar 07 08:33:41 2016] [error] [client 180.153.206.13] PHP Notice:  Undefined index: scope in /var/www/html/cms/go.php on line 9, referer: \x10s/\x02
+[Mon Mar 07 08:36:27 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: id in /var/www/html/cms/content.php on line 9, referer: http://www.zhuangxiuji.com.cn/cms/content.php?id=63&shareopenid=owB_Pw8KlC2rq3Vll3likjXg-xWY
+[Mon Mar 07 08:39:31 2016] [error] [client 182.131.12.11] PHP Warning:  Missing argument 3 for SystemTool::checkOpenid(), called in /var/www/html/cms/index.php on line 14 and defined in /var/www/html/cms/datacenter/systemtool.php on line 38
+[Mon Mar 07 08:40:45 2016] [error] [client 223.85.132.34] PHP Notice:  Undefined index: scope in /var/www/html/cms/go.php on line 9
+[Mon Mar 07 08:44:48 2016] [error] [client 223.85.132.34] PHP Notice:  Undefined index: scope in /var/www/html/cms/go.php on line 9
+[Mon Mar 07 08:48:14 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: id in /var/www/html/cms/content.php on line 9, referer: http://www.zhuangxiuji.com.cn/cms/content.php?id=63&shareopenid=owB_Pw8KlC2rq3Vll3likjXg-xWY
+[Mon Mar 07 08:49:06 2016] [error] [client 124.161.23.60] PHP Notice:  Undefined index: scope in /var/www/html/cms/go.php on line 9
+[Mon Mar 07 08:50:20 2016] [error] [client 182.131.12.11] PHP Notice:  Undefined index: scope in /var/www/html/cms/go.php on line 9
+[Mon Mar 07 08:50:37 2016] [error] [client 124.161.23.60] PHP Notice:  Undefined index: scope in /var/www/html/cms/go.php on line 9
+[Mon Mar 07 08:51:10 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: scope in /var/www/html/cms/go.php on line 9
+[Mon Mar 07 08:51:17 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/source/images/arrows.png, referer: http://www.zhuangxiuji.com.cn/cms/source/css/style.css
+[Mon Mar 07 08:51:18 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/10.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:51:18 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/15.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:51:19 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/14.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:51:19 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/21.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:51:19 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/18.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:51:19 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/16.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:51:19 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/20.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:51:20 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/19.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:51:20 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/11.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:51:20 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/17.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:51:20 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/12.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:51:21 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/13.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:51:44 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: id in /var/www/html/cms/content.php on line 9, referer: http://www.zhuangxiuji.com.cn/cms/content.php?id=64
+[Mon Mar 07 08:52:31 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/source/images/arrows.png, referer: http://www.zhuangxiuji.com.cn/cms/source/css/style.css
+[Mon Mar 07 08:52:31 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/18.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:52:32 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/15.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:52:32 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/14.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:52:32 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/10.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:52:32 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/21.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:52:33 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/16.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:52:33 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/20.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:52:33 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/19.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:52:34 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/11.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:52:34 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/17.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:52:34 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/12.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:52:34 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/13.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:53:04 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: id in /var/www/html/cms/content.php on line 9, referer: http://www.zhuangxiuji.com.cn/cms/content.php?id=62
+[Mon Mar 07 08:54:37 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/source/images/arrows.png, referer: http://www.zhuangxiuji.com.cn/cms/source/css/style.css
+[Mon Mar 07 08:54:37 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/10.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:54:37 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/21.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:54:38 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/16.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:54:38 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/18.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:54:38 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/13.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:54:38 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/20.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:54:39 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/19.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:54:40 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/11.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:54:40 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/12.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:54:40 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/15.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:54:40 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/14.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:54:41 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/17.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:55:29 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: id in /var/www/html/cms/content.php on line 9, referer: http://www.zhuangxiuji.com.cn/cms/content.php?id=63
+[Mon Mar 07 08:57:17 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/source/images/arrows.png, referer: http://www.zhuangxiuji.com.cn/cms/source/css/style.css
+[Mon Mar 07 08:57:18 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/15.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:57:18 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/21.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:57:18 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/14.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:57:18 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/10.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:57:18 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/18.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:57:18 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/16.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:57:19 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/11.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:57:19 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/17.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:57:19 2016] [error] [client 218.104.207.158] File does not exist: /var/www/html/cms/upload/m_pic/12.jpg, referer: http://www.zhuangxiuji.com.cn/cms/index.php
+[Mon Mar 07 08:57:33 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: id in /var/www/html/cms/content.php on line 9, referer: http://www.zhuangxiuji.com.cn/cms/content.php?id=62
+[Mon Mar 07 08:58:28 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: id in /var/www/html/cms/content.php on line 9, referer: http://www.zhuangxiuji.com.cn/cms/content.php?id=62
+[Mon Mar 07 08:59:02 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: id in /var/www/html/cms/content.php on line 9, referer: http://www.zhuangxiuji.com.cn/cms/content.php?id=63
+[Mon Mar 07 08:59:13 2016] [error] [client 218.104.207.158] PHP Notice:  Undefined index: id in /var/www/html/cms/content.php on line 9, referer: http://www.zhuangxiuji.com.cn/cms/content.php?id=64

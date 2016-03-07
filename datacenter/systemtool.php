@@ -36,11 +36,12 @@ class SystemTool{
 	 * @return [type]        [description]
 	 */
 	public static function checkOpenid($db,$scope = 'snsapi_base',$redirecturl){
-		if(empty($redirecturl)){
+		if(empty($redirecturl)||empty($scope)){
 			echo '参数异常';
 			exit;
 		}
-		$gourl = SITE_DOMAIN.'go.php?redirecturl='.urlencode($redirecturl)."&scope=".$scope;
+		$_SESSION['redirectpage'] = $redirecturl;
+		$gourl = SITE_DOMAIN.'go.php?scope='.$scope;
 		header("location:$gourl");
 		exit;
 	}

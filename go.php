@@ -5,25 +5,26 @@
 ini_set('display_errors', 1);
 require_once './config.inc.php';
 
-$redirecturl = urldecode($_GET['redirecturl']);
+$redirectpage = $_SESSION['redirectpage'];
 $scope = $_GET['scope'];
 
 if(!empty($_SESSION['openid'])){
-	header("location:$redirecturl");
+	header("location:$redirectpage");
 }
 
 if(!isset($_GET['code'])){
 	//授权请求
-	$redirect_uri = SITE_DOMAIN.'go.php?redirecturl='.urlencode($redirecturl).'#'.time();
+	$redirect_uri = SITE_DOMAIN.'go.php';
+	SystemTool::systemLog($db,'网页授权开始','scope',$_SERVER['QUERY_STRING']);
 	\LaneWeChat\Core\WeChatOAuth::getCode($redirect_uri, $state=1, $scope);
 }elseif(isset($_GET['code'])){
 	$code = $_GET['code'];
 	if(empty($code)){
-		SystemTool::systemLog($db,'网页授权','获取code异常，code为空');
+		SystemTool::systemLog($db,'code回调','获取code异常，code为空','1');
 		echo '网页授权错误，获取code异常';
 		exit;
 	}
-	
+	SystemTool::systemLog($db,'网页授权得到code','code',$_SERVER['QUERY_STRING']);
 	$tempinfo = \LaneWeChat\Core\WeChatOAuth::getAccessTokenAndOpenId($code);
 	//file_put_contents("userinfo.txt", print_r($tempinfo,true));
 	if(empty($tempinfo['openid'])){

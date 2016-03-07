@@ -13,7 +13,7 @@ class Addressinfo{
 		$url = 'http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js&ip='.$ip;
 		$tempdata = file_get_contents($url);
 		$tempdata = substr($tempdata,strpos($tempdata,'{'));
-		file_put_contents("ipdata.log", $tempdata);
+		//file_put_contents("ipdata.log", $tempdata);
 		$ipinfo = json_decode($tempdata,true);
 		return $ipinfo;
 	}

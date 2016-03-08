@@ -1,0 +1,8 @@
+Array
+(
+    [access_token] => OezXcEiiBSKSxW0eoylIeHSRTrwN4J49VvDywrNMl1ASvJR4wE7V9_GyNNVUE1tpeLflUYBNwxPJQ70hP6U7IlRmTvSwp4-N8fbXKSlDx_pTDKuwV6Jyu74dX1VBteLFYXxGirQLu-ZbdExEJlKERg
+    [expires_in] => 7200
+    [refresh_token] => OezXcEiiBSKSxW0eoylIeHSRTrwN4J49VvDywrNMl1ASvJR4wE7V9_GyNNVUE1tp_VKKiYEMRWkmwMbSO4AtCXQbSIXYXarkCu3K2kERCVN6wn_hu9KbgFNtrtSYHd4k8tRFNrhA5_PgmfqMk63iHA
+    [openid] => owB_Pw8KlC2rq3Vll3likjXg-xWY
+    [scope] => snsapi_userinfo
+)

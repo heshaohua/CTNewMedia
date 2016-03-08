@@ -35,7 +35,7 @@
                             <div style="width:30%;float:left;height:20px;">人均：&yen;<?php echo $content['minprice'];?> ~ &yen;<?php echo $content['maxprice'];?></div>           
                         </div>
                         <div style="width:100%;font-size:12px;font-weight: bold;">
-                            分钱区域：成都市(武侯区，青羊区，双流县)
+                            分钱区域：<?php echo $areadata;?>
                         </div>
                         <div class="proinfo_1">
                             <?php echo $content['content'];?>

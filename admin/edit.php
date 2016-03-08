@@ -18,7 +18,32 @@ if(isset($_POST['savepost'])){
 	//$tags = addslashes($_POST['tags']);
 	$status = $_POST['status'];
 	$categoryid = $_POST['categoryid'];
+	
+	//有效范围
+	$areadata = array();
+	$areadata['country'] = urlencode('中国');
+
+	$province = trim($_POST['province']);
+	$areadata['province'] = urlencode($province);
+
 	$city = trim($_POST['city']);
+	$district = trim($_POST['district']);
+	if($city=='全省'){
+		$city = 'all';
+		$district = '';
+	}else{
+		if(!empty($district)){
+			$districttemp = explode('|', $district);
+			foreach($districttemp as $key=>$item){
+				$districttemp[$key] = urlencode($item);
+			}
+		}
+	}
+	$areadata['city'] = urlencode($city);
+
+	$areadata['district'] = isset($districttemp)?$districttemp:urlencode($district);
+
+
 	$money = floatval($_POST['money']);
 	$leftmoney = floatval($_POST['leftmoney']);
 	$minprice = floatval($_POST['minprice']);
@@ -58,7 +83,7 @@ if(isset($_POST['savepost'])){
 	
 
 	//update 主表
-	$sql = "update articles set title='".$title."',remark='".$remark."',status=".$status." ,categoryid='".$categoryid."',city='".$city."',money=".$money.",leftmoney=".$leftmoney.",priceperclick=".$priceperclick.",clicknum=".$clicknum.",minprice=".$minprice.",maxprice=".$maxprice.",sharenum=".$sharenum.",visitcount=".$visitcount." where id=".$id;
+	$sql = "update articles set title='".$title."',remark='".$remark."',status=".$status." ,categoryid='".$categoryid."',city='".urldecode(json_encode($areadata))."',money=".$money.",leftmoney=".$leftmoney.",priceperclick=".$priceperclick.",clicknum=".$clicknum.",minprice=".$minprice.",maxprice=".$maxprice.",sharenum=".$sharenum.",visitcount=".$visitcount." where id=".$id;
 	$db->query($sql);
 	if(!empty($listimage)){
 		$sql = "update articles set listimage='".$listimage."' where id=".$id;
@@ -82,6 +107,11 @@ if(empty($id)){
 	$data = $db->fetch_first($sql);
 	if(empty($data)){
 		$msg = "There is No article with this ID";
+	}else{
+		$tempareadata = json_decode($data['city'],true);
+		$data['province'] = $tempareadata['province'];
+		$data['tempcity'] = $tempareadata['city']=='all'?'全省':$tempareadata['city'];
+		$data['district'] = is_array($tempareadata['district'])?implode('|',$tempareadata['district']):'';
 	}
 }
 

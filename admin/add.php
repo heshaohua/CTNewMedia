@@ -19,7 +19,33 @@ if(isset($_POST['addpost'])){
 	$categoryid = $_POST['categoryid'];
 	$minprice = floatval($_POST['minprice']);
 	$maxprice = floatval($_POST['maxprice']);
+
+	//有效范围
+	$areadata = array();
+	$areadata['country'] = urlencode('中国');
+
+	$province = trim($_POST['province']);
+	$areadata['province'] = urlencode($province);
+
 	$city = trim($_POST['city']);
+	$district = trim($_POST['district']);
+	if($city=='全省'){
+		$city = 'all';
+		$district = '';
+	}else{
+		if(!empty($district)){
+			$districttemp = explode('|', $district);
+			foreach($districttemp as $key=>$item){
+				$districttemp[$key] = urlencode($item);
+			}
+		}
+	}
+	$areadata['city'] = urlencode($city);
+
+	$areadata['district'] = isset($districttemp)?$districttemp:urlencode($district);
+
+
+
 	$money = floatval($_POST['money']);
 	if(empty($listimage)){
 		if(preg_match('/<img(.*?)src="(.*?)(?=")/',$_POST['content'],$temp)){
@@ -33,9 +59,9 @@ if(isset($_POST['addpost'])){
 
 	
 	if(!empty($listimage))
-		$sql = "insert into articles(`title`,`listimage`,`remark`,`author`,`status`,`categoryid`,`city`,`money`,`leftmoney`,`minprice`,`maxprice`) values('".$title."','".$listimage."','".$remark."','".$author."',".$status.",'".$categoryid."','".$city."',".$money.",".$money.",".$minprice.",".$maxprice.")";
+		$sql = "insert into articles(`title`,`listimage`,`remark`,`author`,`status`,`categoryid`,`city`,`money`,`leftmoney`,`minprice`,`maxprice`) values('".$title."','".$listimage."','".$remark."','".$author."',".$status.",'".$categoryid."','".urldecode(json_encode($areadata))."',".$money.",".$money.",".$minprice.",".$maxprice.")";
 	else
-		$sql = "insert into articles(`title`,`remark`,`author`,`status`,`categoryid`,`city`,`money`,`leftmoney`,`minprice`,`maxprice`) values('".$title."','".$remark."','".$author."',".$status.",'".$categoryid."','".$city."',".$money.",".$money.",".$minprice.",".$maxprice.")";
+		$sql = "insert into articles(`title`,`remark`,`author`,`status`,`categoryid`,`city`,`money`,`leftmoney`,`minprice`,`maxprice`) values('".$title."','".$remark."','".$author."',".$status.",'".$categoryid."','".urldecode(json_encode($areadata))."',".$money.",".$money.",".$minprice.",".$maxprice.")";
 	$db->query($sql);
 	$articleId = $db->insert_id();
 	if($articleId){

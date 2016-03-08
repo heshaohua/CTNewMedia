@@ -47,10 +47,16 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="city">有效区域(城市)  <span style="font-size:12px;color:grey;">!多个城市以竖线（‘|’）分隔，例如（成都|德阳|绵阳  ）<span></label><br>
-                        <textarea name="city" id="city" cols="100" rows="3">
-                            <?php echo $data['city'];?>
-                        </textarea>
+                        <label for="city">有效区域(城市)  
+                        <span style="font-size:12px;color:red;display:none;" id="citytips">
+                            如果需要具体到县级请在输入框中输入，多个城市以竖线（‘|’）分隔，如 涪城区|游仙区|江油市 .  为空默认全市范围
+                        </span></label>
+                        <br>
+                        <div id="city">
+                            <select class="prov" name="province"></select>
+                            <select class="city" disabled="disabled" name="city" onchange="selectcity()"></select>
+                        </div>
+                        <textarea name="district" id="district" rows="3" cols="89" style="display:none;margin-top:10px;"><?php echo $data['district'];?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="money">总金额</label>
@@ -118,5 +124,35 @@
         </div>
     </div>
 </div>
+<script src="js/jquery.cityselect.js"></script>
+<script>
+$("#city").citySelect({   
+    url:"js/city.min.js",   
+    prov:"<?php echo $data['province'];?>", //省份  
+    city:"<?php echo $data['tempcity'];?>", //城市  
+});
+$(function(){
+    if($(".city").length>0&&$(".city")[0].value!='全省'){
+        $("#citytips").show();
+        $("#district").show();
+    }else{
+        $("#citytips").hide();
+        $("#district").value='';
+        $("#district").hide();
+    }
+});
 
+function selectcity(){
+    var city = $(".city")[0].value;
+    if(city=='全省'){
+        $("#citytips").hide();
+        $("#district").value='';
+        $("#district").hide();
+    }else{
+        $("#citytips").show();
+        $("#district").value='';
+        $("#district").show();
+    }
+}
+</script>
 <?php include 'template/footer.php';?>

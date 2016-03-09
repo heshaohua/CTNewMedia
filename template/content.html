@@ -74,7 +74,7 @@ wx.ready(function(){
 	    }
 	});
 
-	
+<?php if(!isset($_SESSION['location'])):?>	
 	wx.getLocation({
 	    type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
 	    success: function (res) {
@@ -84,30 +84,33 @@ wx.ready(function(){
 	        var accuracy = res.accuracy; // 位置精度
 	        $.ajax({
 	        	type:"POST",
-	        	url:"<?php echo SITE_DOMAIN;?>content.php",
+	        	url:"<?php echo SITE_DOMAIN;?>contentlog.php",
 	        	data:"action=location&latitude="+latitude+"&longitude="+longitude,
 	        	success:function(msg){}
 	        });
 	    }
 	});
+<?php endif;?>
 	
 });
 
-<?php if(!empty($shareopenid)):?>
+<?php if(!empty($shareopenid)&&!$isclicked):?>
 $(function(){
 	setTimeout(function(){
 		$.ajax({
 			type:"POST",
 		    url:'<?php echo SITE_DOMAIN;?>contentlog.php',
-		    data:"action=clickshare&id=<?php echo $content['id'];?>&openid=<?php echo $_SESSION['openid'];?>&shareopenid=<?php echo $shareopenid;?>",
-		    success:function(msg){
-		    	setTimeout(function(){alert('本次阅读为你的好友增加￥0.5');},3000);
+		    data:"action=clickshare&id=<?php echo $content['id'];?>&shareopenid=<?php echo $shareopenid;?>",
+		    success:function(data){
+		    	var msgobj = eval("("+data+")");
+		    	setTimeout(function(){
+		    		alert(msgobj.msg);
+		    	},3000);
 		    	//to do 引入artDialog，丰富交互
 		    	
 		    }
 		});
-	},3000);
-	
+	},3000);	
 });
 <?php endif;?>
 </script>
@@ -149,7 +152,7 @@ $(function(){
 				<div style="width:60%;float:left;height:20px;">人均：￥<?php echo $content['minprice'];?>-￥<?php echo $content['maxprice'];?></div>           
 			</div>
 			<div style="width:100%;font-size:12px;">
-				分钱区域：<?php echo $content['city'];?>
+				分钱区域：<?php echo $areadata;?>
 			</div>
 			<div class="proinfo_1">
 				<?php echo $content['content'];?>

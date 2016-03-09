@@ -53,7 +53,7 @@ class SystemTool{
 	 * @param  [type] $msg    [description]
 	 * @return [type]         [description]
 	 */
-	public static function systemLog($db,$action,$msg,$extradata){
+	public static function systemLog($db,$action,$msg,$extradata=''){
 		$sql = "insert into systemlog(`action`,`msg`,`extradata`) values('".$action."','".$msg."','".$extradata."')";
 		$db->query($sql);
 	}

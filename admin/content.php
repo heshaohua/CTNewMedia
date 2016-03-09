@@ -22,7 +22,7 @@ if(empty($id)){
 		$tempareadata = json_decode($content['city'],true);
 		$data['province'] = $tempareadata['province'];
 		$data['tempcity'] = $tempareadata['city'];
-		$data['district'] = is_array($tempareadata['district'])?implode('|',$tempareadata['district']):'';
+		$data['district'] = is_array($tempareadata['district'])?implode(',',$tempareadata['district']):'';
 		if(!empty($data['district'])){
 			$areadata = $data['tempcity'].'('.$data['district'].')';
 		}else if($data['tempcity']!='all'){
@@ -31,7 +31,6 @@ if(empty($id)){
 			$areadata = $data['province'];
 		}
 	}
-
 }
 
 $allcategory = getCategory($db);

@@ -15,22 +15,15 @@ if(isset($_GET['shareopenid'])&&!empty($_GET['shareopenid'])){
 
 //用户openid
 if(empty($_SESSION['openid'])){
+	//SystemTool::systemLog('content.php','empty session openid','');
 	$redirecturl = SITE_DOMAIN.'content.php?id='.$contentid;
 	if(!empty($shareopenid))
 		$redirecturl .= '&shareopenid='.$shareopenid;
 	$redirecturl .= '#'.time();
 	SystemTool::checkOpenid($db,'snsapi_userinfo',$redirecturl);
-}
-
-
-
-//位置信息,ajax请求处理
-if(isset($_POST['action'])&&$_POST['action']==='location'){
-	$latitude = $_POST['latitude'];
-	$longitude = $_POST['longitude'];
-	$_SESSION['location'] = $latitude.','.$longitude;
 	exit;
 }
+
 
 
 $content = ContentClass::getArticle($db,$contentid);
@@ -39,8 +32,26 @@ if(empty($content)){
 	exit;
 }
 
+if(!empty($shareopenid)){
+	$isclicked = ClickCount::checkisClicked($db,$contentid,$_SESSION['openid'],$shareopenid);
+}
+
+$tempareadata = json_decode($content['city'],true);
+$data['province'] = $tempareadata['province'];
+$data['tempcity'] = $tempareadata['city'];
+$data['district'] = is_array($tempareadata['district'])?implode(',',$tempareadata['district']):'';
+if(!empty($data['district'])){
+	$areadata = $data['tempcity'].'('.$data['district'].')';
+}else if($data['tempcity']!='all'){
+	$areadata = $data['tempcity'];
+}else{
+	$areadata = $data['province'];
+}
+
+
+
 $pageidx = 'content';
-$title = '同城新媒广告';
+$title = '同城新媒';
 
 //jsapi 相关部分
 $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];

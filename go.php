@@ -6,16 +6,17 @@ ini_set('display_errors', 1);
 require_once './config.inc.php';
 
 $redirectpage = $_SESSION['redirectpage'];
-$scope = $_GET['scope'];
+
 
 if(!empty($_SESSION['openid'])){
 	header("location:$redirectpage");
 }
 
-if(!isset($_GET['code'])){
+if(!isset($_GET['code'])&&isset($_GET['scope'])){
+	$scope = $_GET['scope'];
 	//授权请求
 	$redirect_uri = SITE_DOMAIN.'go.php';
-	SystemTool::systemLog($db,'网页授权开始','scope',$_SERVER['QUERY_STRING']);
+	//SystemTool::systemLog($db,'网页授权开始','scope',$_SERVER['QUERY_STRING']);
 	\LaneWeChat\Core\WeChatOAuth::getCode($redirect_uri, $state=1, $scope);
 }elseif(isset($_GET['code'])){
 	$code = $_GET['code'];
@@ -24,7 +25,7 @@ if(!isset($_GET['code'])){
 		echo '网页授权错误，获取code异常';
 		exit;
 	}
-	SystemTool::systemLog($db,'网页授权得到code','code',$_SERVER['QUERY_STRING']);
+	//SystemTool::systemLog($db,'网页授权得到code','code',$_SERVER['QUERY_STRING']);
 	$tempinfo = \LaneWeChat\Core\WeChatOAuth::getAccessTokenAndOpenId($code);
 	//file_put_contents("userinfo.txt", print_r($tempinfo,true));
 	if(empty($tempinfo['openid'])){
@@ -40,17 +41,17 @@ if(!isset($_GET['code'])){
 	//self::insertPageAccessToken($db,$tempinfo);
 
 	//插入用户信息
-	if($scope=='snsapi_userinfo'){
-		if(!Userinfo::checkIfuserInfoinDb($db,$tempinfo['openid'])){
-			$userinfo = Userinfo::getUserinfoPage($tempinfo['access_token'],$tempinfo['openid']);
-			if(!empty($userinfo)&&!isset($userinfo['errcode'])){
-				\LaneWeChat\Core\UserManage::insertPageuserinfo($userinfo);	
-			}else{
-				SystemTool::systemLog($db,'网页授权','获取用户信息异常');
-			}
+	if(!Userinfo::checkIfuserInfoinDb($db,$tempinfo['openid'])){
+		$userinfo = Userinfo::getUserinfoPage($tempinfo['access_token'],$tempinfo['openid']);
+		if(!empty($userinfo)&&!isset($userinfo['errcode'])){
+			\LaneWeChat\Core\UserManage::insertPageuserinfo($userinfo);	
+			//SystemTool::systemLog($db,'网页授权插入用户信息','插入用户信息');
+		}else{
+			SystemTool::systemLog($db,'网页授权','获取用户信息异常');
 		}
 	}
-	header("location:$redirecturl");
+	
+	header("location:$redirectpage");
 }
 
 ?>

@@ -14,7 +14,7 @@ class ClickCount{
 	 * @return [type]              [description]
 	 */
 	public static function  checkisClicked($db,$contentid,$openid,$shareopenid){
-		$result = $db->fetch_first("select * from clickcount where contentid=".$contentid." and openid='".$openid."' and shareopenid='".$shareopenid."'");
+		$result = $db->fetch_first("select * from clickcount where contentid=".$contentid." and clickOpenid='".$openid."' and shareOpenid='".$shareopenid."'");
 		if(empty($result['id'])||$result['isvalid']==0)
 			return false;
 		else

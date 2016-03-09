@@ -27,7 +27,7 @@ class ClickCount{
 	 * @param  [type] 
 	 * $contentarea = array(
 	 *			'country' => 'China'/ 'all',
-	 *			'province' => 'all'/array(p1,p2,p3)/'',
+	 *			'province' => '',
 	 *			'city' => 'all'/array(c1,c2,c3)/'',
 	 *			'district' => 'all'/array(d1,d2,d3)/'',
 	 *	);
@@ -51,11 +51,11 @@ class ClickCount{
 
 		//province
 		if($Cprovince == 'all') return true;
-		if(!in_array($province,$Cprovince)) return false;
+		if($province != $Cprovince) return false;
 
 		//city
 		if($Ccity == 'all') return true;
-		if(!in_array($city,$Ccity)) return false;
+		if($city != $Ccity) return false;
 
 		//district
 		if($Cdistrict == 'all') return true;
@@ -93,7 +93,7 @@ class ClickCount{
 		$timenow = time();
 		$sql = "insert into clickcount(`contentid`,`shareOpenid`,`clickOpenid`,`addtime`,`ip`,`money`) 
 				values(
-						'".$contentid."',
+						'".$contentinfo['id']."',
 						'".$shareopenid."',
 						'".$clickopenid."',
 						'".$timenow."',
@@ -112,7 +112,7 @@ class ClickCount{
 		$clickcountId = $db->insert_id();
 
 		//操作剩余金额等数据
-		$sql = "update articles leftmoney = leftmoney - ".$money.",clicknum=clicknum+1 where id=".$contentinfo['id'];
+		$sql = "update articles set leftmoney = leftmoney - ".$money.",clicknum=clicknum+1 where id=".$contentinfo['id'];
 		$db->query($sql);
 		$error = $db->error();
 		if(!empty($error)){

@@ -61,19 +61,35 @@ if(isset($_POST['action'])&&$_POST['action']=='clickshare'){
 		}
 		
 		//点击价格
-		$clickprice = rand($contentinfo['minprice'],$contentinfo['maxprice']);
-		if($clickprice>$contentinfo['leftmoney']){
+		$clickprice = rand($contentinfo['minprice']*100,$contentinfo['maxprice']*100);
+		if($clickprice/100>$contentinfo['leftmoney']){
 			$clickprice = $contentinfo['leftmoney'];
+		}else{
+			$clickprice = floatval($clickprice/100);
 		}
 
 		//位置信息
+		$addressinfo = array();
 		if(!empty($_SESSION['location'])){
 			$xytude = explode(',', $_SESSION['location']);
-			$addressinfo = Addressinfo::getLocationByxy($xytude[0],$xytude[1]);
+			$tempxyinfo = Addressinfo::getLocationByxy($xytude[0],$xytude[1]);
+			$tempaddress = $tempxyinfo['result']['address_component'];
+
+			$addressinfo['country'] = $tempaddress['nation'];
+			$addressinfo['province'] = $tempaddress['province'];
+			$addressinfo['city'] = $tempaddress['city'];
+			$addressinfo['district'] = $tempaddress['district'];
 		}else{
-			$addressinfo = Addressinfo::getAddressByIp($_SERVER['REMOTE_ADDR']);
+			$tempaddress = Addressinfo::getAddressByIp($_SERVER['REMOTE_ADDR']);
+
+			$addressinfo['country'] = $tempaddress['country'];
+			$addressinfo['province'] = $tempaddress['province'];
+			$addressinfo['city'] = $tempaddress['city'];
+			$addressinfo['district'] = $tempaddress['district'];
+
 			SystemTool::systemLog($db,'位置数据跟踪','没取到位置坐标，用ip取位置信息',$_SERVER['REMOTE_ADDR'].print_r($_POST,true));
 		}
+		SystemTool::systemLog($db,'位置数据跟踪','位置信息',print_r($addressinfo,true));
 
 		$clickresult = ClickCount::logClick($db,$contentinfo,$clickOpenid,$shareOpenid,$_SERVER['REMOTE_ADDR'],$clickprice,$addressinfo);
 		switch($clickresult){

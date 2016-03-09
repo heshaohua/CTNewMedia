@@ -15,7 +15,7 @@ if(isset($_GET['shareopenid'])&&!empty($_GET['shareopenid'])){
 
 //用户openid
 if(empty($_SESSION['openid'])){
-	//SystemTool::systemLog('content.php','empty session openid','');
+	SystemTool::systemLog($db,'content.php','empty session openid','check openid');
 	$redirecturl = SITE_DOMAIN.'content.php?id='.$contentid;
 	if(!empty($shareopenid))
 		$redirecturl .= '&shareopenid='.$shareopenid;

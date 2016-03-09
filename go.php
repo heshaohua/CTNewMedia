@@ -16,7 +16,7 @@ if(!isset($_GET['code'])&&isset($_GET['scope'])){
 	$scope = $_GET['scope'];
 	//授权请求
 	$redirect_uri = SITE_DOMAIN.'go.php';
-	//SystemTool::systemLog($db,'网页授权开始','scope',$_SERVER['QUERY_STRING']);
+	SystemTool::systemLog($db,'网页授权开始','scope',$_SERVER['QUERY_STRING']);
 	\LaneWeChat\Core\WeChatOAuth::getCode($redirect_uri, $state=1, $scope);
 }elseif(isset($_GET['code'])){
 	$code = $_GET['code'];
@@ -25,7 +25,7 @@ if(!isset($_GET['code'])&&isset($_GET['scope'])){
 		echo '网页授权错误，获取code异常';
 		exit;
 	}
-	//SystemTool::systemLog($db,'网页授权得到code','code',$_SERVER['QUERY_STRING']);
+	SystemTool::systemLog($db,'网页授权得到code','code',$_SERVER['QUERY_STRING']);
 	$tempinfo = \LaneWeChat\Core\WeChatOAuth::getAccessTokenAndOpenId($code);
 	//file_put_contents("userinfo.txt", print_r($tempinfo,true));
 	if(empty($tempinfo['openid'])){

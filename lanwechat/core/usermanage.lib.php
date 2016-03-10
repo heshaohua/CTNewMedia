@@ -253,4 +253,17 @@ class UserManage{
         else
             return false;
     }
+
+    /**
+     * [是否已关注]
+     * @param  [type] $openid [description]
+     * @return [type]         [description]
+     */
+    public static function checkisSubscribe($openid){
+        $userinfo = self::getUserInfo($openid);
+        if($userinfo['subscribe']==1)
+            return true;
+        else
+            return false;
+    }
 }

@@ -44,12 +44,14 @@ if(!isset($_GET['code'])&&isset($_GET['scope'])){
 	if(!Userinfo::checkIfuserInfoinDb($db,$tempinfo['openid'])){
 		$userinfo = Userinfo::getUserinfoPage($tempinfo['access_token'],$tempinfo['openid']);
 		if(!empty($userinfo)&&!isset($userinfo['errcode'])){
-			\LaneWeChat\Core\UserManage::insertPageuserinfo($userinfo);	
-			//SystemTool::systemLog($db,'网页授权插入用户信息','插入用户信息');
+			\LaneWeChat\Core\UserManage::insertPageuserinfo($userinfo);
 		}else{
-			SystemTool::systemLog($db,'网页授权','获取用户信息异常');
+			SystemTool::systemLog($db,'网页授权','获取用户信息异常',json_encode($userinfo));
 		}
 	}
+	$isSubscribe = \LaneWeChat\Core\UserManage::checkisSubscribe($tempinfo['openid']);
+	$subscribe = $isSubscribe?1:0;
+	Userinfo::updateSubscribe($db,$tempinfo['openid'],$subscribe);
 	
 	header("location:$redirectpage");
 }

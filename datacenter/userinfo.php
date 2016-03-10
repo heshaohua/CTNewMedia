@@ -15,6 +15,12 @@ class Userinfo{
 		return true;
 	}
 
+	//更新关注状态，影响极大
+	public static function updateSubscribe($db,$openid,$subscribe){
+		$sql = "update users set subscribe=".$subscribe." where openid='".$openid."'";
+		$db->query($sql);
+	}
+
 	//检查是否已经插入用户信息
 	public static function checkIfuserInfoinDb($db,$openid){
 		$sql = "select * from users where openid='".$openid."'";

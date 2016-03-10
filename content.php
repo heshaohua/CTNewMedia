@@ -61,7 +61,7 @@ $signPackage = \LaneWeChat\Core\JsapiTicket::getSignPackage($url);
 
 $shareinfo['title'] = $content['title'];
 $url = SITE_DOMAIN."content.php?id=".$content['id'];
-if(Userinfo::checkSubscribe($db,$_SESSION['openid'])){
+if(\LaneWeChat\Core\UserManage::checkisSubscribe($_SESSION['openid'])){
 	$url .= '&shareopenid='.$_SESSION['openid'];
 }	
 $shareinfo['link'] = $url;

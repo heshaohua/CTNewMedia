@@ -266,4 +266,14 @@ class UserManage{
         else
             return false;
     }
+
+    /**
+     * 更新关注状态
+     */
+    public static function updateSubscribe($openid,$subscribe){
+        $db = new mysql;
+        $db->connect(DBHOST, DBUSER, DBPASSWORD, DBNAME);
+        $sql = "update users set subscribe=".$subscribe." where openid='".$openid."'";
+        $db->query($sql);
+    }
 }

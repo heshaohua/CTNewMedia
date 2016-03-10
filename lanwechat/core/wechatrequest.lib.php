@@ -229,6 +229,7 @@ class WechatRequest{
      */
     public static function eventUnsubscribe(&$request){
         $content = '感谢您的支持，我们会继续努力做得更好';
+        UserManage::updateSubscribe($request['fromusername'],0);
         return ResponsePassive::text($request['fromusername'], $request['tousername'], $content);
     }
 

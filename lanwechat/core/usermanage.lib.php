@@ -221,9 +221,9 @@ class UserManage{
                 city = '".$userinfo['city']."',
                 province = '".$userinfo['province']."',
                 country = '".$userinfo['country']."',
-                headimgurl = '".$userinfo['headimgurl']."'
-                where openid = '".$userinfo['openid']."'
-               "; 
+                headimgurl = '".$userinfo['headimgurl']."',
+                subscribe_time = ".$userinfo['subscribe_time']."
+                where openid = '".$userinfo['openid']."'"; 
         $db->query($sql);   
     }
 
